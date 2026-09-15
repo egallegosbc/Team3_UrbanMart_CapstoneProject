@@ -1,0 +1,2001 @@
+CustomerID,Segment
+CUST00001,Developing
+CUST00002,Developing
+CUST00003,Champions
+CUST00004,Champions
+CUST00005,Champions
+CUST00006,Champions
+CUST00007,Champions
+CUST00008,Champions
+CUST00009,At Risk
+CUST00010,Developing
+CUST00011,Developing
+CUST00012,At Risk
+CUST00013,Developing
+CUST00014,Developing
+CUST00015,Developing
+CUST00016,Developing
+CUST00017,Developing
+CUST00018,Developing
+CUST00019,Developing
+CUST00020,Champions
+CUST00021,Champions
+CUST00022,Developing
+CUST00023,Developing
+CUST00024,Developing
+CUST00025,Champions
+CUST00026,Champions
+CUST00027,Champions
+CUST00028,Champions
+CUST00029,Champions
+CUST00030,Developing
+CUST00031,Champions
+CUST00032,Champions
+CUST00033,At Risk
+CUST00034,Champions
+CUST00035,Developing
+CUST00036,Champions
+CUST00037,At Risk
+CUST00038,Champions
+CUST00039,Developing
+CUST00040,Champions
+CUST00041,Champions
+CUST00042,Champions
+CUST00043,Champions
+CUST00044,Champions
+CUST00045,Champions
+CUST00046,Champions
+CUST00047,Developing
+CUST00048,Champions
+CUST00049,Champions
+CUST00050,Champions
+CUST00051,Developing
+CUST00052,Developing
+CUST00053,Champions
+CUST00054,Developing
+CUST00055,Champions
+CUST00056,Champions
+CUST00057,Champions
+CUST00058,Champions
+CUST00059,Developing
+CUST00060,Developing
+CUST00061,Champions
+CUST00062,Developing
+CUST00063,At Risk
+CUST00064,Champions
+CUST00065,Champions
+CUST00066,Developing
+CUST00067,Developing
+CUST00068,Champions
+CUST00069,At Risk
+CUST00070,Champions
+CUST00071,Developing
+CUST00072,At Risk
+CUST00073,Developing
+CUST00074,Developing
+CUST00075,At Risk
+CUST00076,Champions
+CUST00077,Champions
+CUST00078,Champions
+CUST00079,Champions
+CUST00080,Champions
+CUST00081,Developing
+CUST00082,Champions
+CUST00083,Developing
+CUST00084,Developing
+CUST00085,Champions
+CUST00086,Developing
+CUST00087,Developing
+CUST00088,Champions
+CUST00089,Developing
+CUST00090,At Risk
+CUST00091,Champions
+CUST00092,Champions
+CUST00093,Developing
+CUST00094,At Risk
+CUST00095,At Risk
+CUST00096,Champions
+CUST00097,Champions
+CUST00098,Champions
+CUST00099,Champions
+CUST00100,Developing
+CUST00101,Champions
+CUST00102,Developing
+CUST00103,Champions
+CUST00104,Champions
+CUST00105,Champions
+CUST00106,Champions
+CUST00107,Champions
+CUST00108,Developing
+CUST00109,Champions
+CUST00110,Developing
+CUST00111,Developing
+CUST00112,Developing
+CUST00113,Champions
+CUST00114,At Risk
+CUST00115,Champions
+CUST00116,Champions
+CUST00117,Champions
+CUST00118,Champions
+CUST00119,Champions
+CUST00120,Developing
+CUST00121,Champions
+CUST00122,Champions
+CUST00123,Champions
+CUST00124,At Risk
+CUST00125,At Risk
+CUST00126,At Risk
+CUST00127,Champions
+CUST00128,Developing
+CUST00129,Champions
+CUST00130,Developing
+CUST00131,Champions
+CUST00132,Champions
+CUST00133,Champions
+CUST00134,Developing
+CUST00135,Champions
+CUST00136,Developing
+CUST00137,Developing
+CUST00138,Champions
+CUST00139,At Risk
+CUST00140,Champions
+CUST00141,Champions
+CUST00142,Champions
+CUST00143,Champions
+CUST00144,Champions
+CUST00145,Champions
+CUST00146,Champions
+CUST00147,Champions
+CUST00148,Champions
+CUST00149,Champions
+CUST00150,Champions
+CUST00151,Developing
+CUST00152,At Risk
+CUST00153,Champions
+CUST00154,Champions
+CUST00155,At Risk
+CUST00156,Champions
+CUST00157,Developing
+CUST00158,Champions
+CUST00159,Champions
+CUST00160,Developing
+CUST00161,Developing
+CUST00162,Champions
+CUST00163,Developing
+CUST00164,Developing
+CUST00165,At Risk
+CUST00166,Champions
+CUST00167,Developing
+CUST00168,Champions
+CUST00169,Developing
+CUST00170,Champions
+CUST00171,Champions
+CUST00172,At Risk
+CUST00173,Champions
+CUST00174,Developing
+CUST00175,At Risk
+CUST00176,Champions
+CUST00177,Developing
+CUST00178,Developing
+CUST00179,At Risk
+CUST00180,At Risk
+CUST00181,Developing
+CUST00182,Champions
+CUST00183,Developing
+CUST00184,Champions
+CUST00185,Champions
+CUST00186,Champions
+CUST00187,Champions
+CUST00188,Developing
+CUST00189,Developing
+CUST00190,Developing
+CUST00191,At Risk
+CUST00192,Developing
+CUST00193,At Risk
+CUST00194,Developing
+CUST00195,Developing
+CUST00196,At Risk
+CUST00197,At Risk
+CUST00198,Champions
+CUST00199,At Risk
+CUST00200,Champions
+CUST00201,Developing
+CUST00202,Champions
+CUST00203,Developing
+CUST00204,Developing
+CUST00205,Champions
+CUST00206,At Risk
+CUST00207,Developing
+CUST00208,Champions
+CUST00209,Developing
+CUST00210,Champions
+CUST00211,Developing
+CUST00212,Champions
+CUST00213,Developing
+CUST00214,At Risk
+CUST00215,At Risk
+CUST00216,Developing
+CUST00217,Champions
+CUST00218,Developing
+CUST00219,Champions
+CUST00220,Champions
+CUST00221,Champions
+CUST00222,Developing
+CUST00223,Champions
+CUST00224,Champions
+CUST00225,Champions
+CUST00226,Champions
+CUST00227,Champions
+CUST00228,Developing
+CUST00229,At Risk
+CUST00230,At Risk
+CUST00231,At Risk
+CUST00232,Champions
+CUST00233,Champions
+CUST00234,Developing
+CUST00235,Developing
+CUST00236,Champions
+CUST00237,Champions
+CUST00238,Champions
+CUST00239,At Risk
+CUST00240,At Risk
+CUST00241,Champions
+CUST00242,Champions
+CUST00243,Champions
+CUST00244,Champions
+CUST00245,Developing
+CUST00246,Champions
+CUST00247,Champions
+CUST00248,Champions
+CUST00249,At Risk
+CUST00250,Champions
+CUST00251,Champions
+CUST00252,Champions
+CUST00253,Champions
+CUST00254,Champions
+CUST00255,Champions
+CUST00256,At Risk
+CUST00257,Developing
+CUST00258,Developing
+CUST00259,Champions
+CUST00260,Champions
+CUST00261,Champions
+CUST00262,Developing
+CUST00263,Developing
+CUST00264,Champions
+CUST00265,Champions
+CUST00266,Champions
+CUST00267,Developing
+CUST00268,Developing
+CUST00269,Developing
+CUST00270,Champions
+CUST00271,Developing
+CUST00272,Developing
+CUST00273,Developing
+CUST00274,Champions
+CUST00275,At Risk
+CUST00276,Developing
+CUST00277,Champions
+CUST00278,Champions
+CUST00279,Developing
+CUST00280,Developing
+CUST00281,Developing
+CUST00282,Developing
+CUST00283,Developing
+CUST00284,Champions
+CUST00285,Champions
+CUST00286,Developing
+CUST00287,Champions
+CUST00288,Developing
+CUST00289,Developing
+CUST00290,Developing
+CUST00291,Developing
+CUST00292,Champions
+CUST00293,Champions
+CUST00294,Champions
+CUST00295,Champions
+CUST00296,Developing
+CUST00297,Champions
+CUST00298,At Risk
+CUST00299,Developing
+CUST00300,Champions
+CUST00301,Developing
+CUST00302,Developing
+CUST00303,At Risk
+CUST00304,At Risk
+CUST00305,Developing
+CUST00306,Champions
+CUST00307,Developing
+CUST00308,Champions
+CUST00309,Champions
+CUST00310,Champions
+CUST00311,Developing
+CUST00312,Champions
+CUST00313,Champions
+CUST00314,Champions
+CUST00315,Developing
+CUST00316,Developing
+CUST00317,Developing
+CUST00318,Developing
+CUST00319,Developing
+CUST00320,Champions
+CUST00321,Developing
+CUST00322,Champions
+CUST00323,Champions
+CUST00324,Champions
+CUST00325,Developing
+CUST00326,Developing
+CUST00327,Champions
+CUST00328,Champions
+CUST00329,Champions
+CUST00330,At Risk
+CUST00331,Developing
+CUST00332,Developing
+CUST00333,Champions
+CUST00334,Developing
+CUST00335,Champions
+CUST00336,At Risk
+CUST00337,Developing
+CUST00338,Champions
+CUST00339,Champions
+CUST00340,At Risk
+CUST00341,Developing
+CUST00342,Champions
+CUST00343,Champions
+CUST00344,Developing
+CUST00345,Developing
+CUST00346,Champions
+CUST00347,Champions
+CUST00348,Developing
+CUST00349,Champions
+CUST00350,Developing
+CUST00351,Champions
+CUST00352,Developing
+CUST00353,Developing
+CUST00354,Developing
+CUST00355,Champions
+CUST00356,Developing
+CUST00357,Developing
+CUST00358,Champions
+CUST00359,Developing
+CUST00360,Champions
+CUST00361,At Risk
+CUST00362,Champions
+CUST00363,Champions
+CUST00364,Champions
+CUST00365,Developing
+CUST00366,Champions
+CUST00367,Developing
+CUST00368,Developing
+CUST00369,Champions
+CUST00370,At Risk
+CUST00371,Champions
+CUST00372,Developing
+CUST00373,Champions
+CUST00374,Champions
+CUST00375,At Risk
+CUST00376,Developing
+CUST00377,Developing
+CUST00378,Champions
+CUST00379,Champions
+CUST00380,At Risk
+CUST00381,Champions
+CUST00382,At Risk
+CUST00383,Champions
+CUST00384,Champions
+CUST00385,Champions
+CUST00386,Champions
+CUST00387,Champions
+CUST00388,Champions
+CUST00389,Developing
+CUST00390,Champions
+CUST00391,Developing
+CUST00392,Developing
+CUST00393,Champions
+CUST00394,Developing
+CUST00395,Developing
+CUST00396,Developing
+CUST00397,Champions
+CUST00398,Developing
+CUST00399,Champions
+CUST00400,Champions
+CUST00401,Champions
+CUST00402,Champions
+CUST00403,Champions
+CUST00404,Champions
+CUST00405,Champions
+CUST00406,Champions
+CUST00407,Champions
+CUST00408,Developing
+CUST00409,Developing
+CUST00410,Developing
+CUST00411,At Risk
+CUST00412,Champions
+CUST00413,Champions
+CUST00414,Champions
+CUST00415,Developing
+CUST00416,Champions
+CUST00417,Champions
+CUST00418,Champions
+CUST00419,Champions
+CUST00420,Champions
+CUST00421,Developing
+CUST00422,Champions
+CUST00423,Champions
+CUST00424,Champions
+CUST00425,Champions
+CUST00426,Developing
+CUST00427,Champions
+CUST00428,Developing
+CUST00429,Developing
+CUST00430,Champions
+CUST00431,Developing
+CUST00432,Developing
+CUST00433,Developing
+CUST00434,Champions
+CUST00435,Champions
+CUST00436,Champions
+CUST00437,At Risk
+CUST00438,Champions
+CUST00439,Champions
+CUST00440,Developing
+CUST00441,Champions
+CUST00442,Developing
+CUST00443,Champions
+CUST00444,At Risk
+CUST00445,At Risk
+CUST00446,Champions
+CUST00447,Developing
+CUST00448,Developing
+CUST00449,Champions
+CUST00450,Champions
+CUST00451,Champions
+CUST00452,Developing
+CUST00453,Champions
+CUST00454,At Risk
+CUST00455,Champions
+CUST00456,Developing
+CUST00457,At Risk
+CUST00458,Champions
+CUST00459,Developing
+CUST00460,Champions
+CUST00461,Champions
+CUST00462,Champions
+CUST00463,Champions
+CUST00464,Champions
+CUST00465,Champions
+CUST00466,Champions
+CUST00467,Champions
+CUST00468,Champions
+CUST00469,At Risk
+CUST00470,Champions
+CUST00471,Champions
+CUST00472,Champions
+CUST00473,Developing
+CUST00474,Champions
+CUST00475,Champions
+CUST00476,Champions
+CUST00477,Developing
+CUST00478,Developing
+CUST00479,Champions
+CUST00480,At Risk
+CUST00481,Developing
+CUST00482,Champions
+CUST00483,At Risk
+CUST00484,Champions
+CUST00485,Champions
+CUST00486,At Risk
+CUST00487,At Risk
+CUST00488,At Risk
+CUST00489,Champions
+CUST00490,Champions
+CUST00491,Champions
+CUST00492,At Risk
+CUST00493,Developing
+CUST00494,At Risk
+CUST00495,Champions
+CUST00496,Champions
+CUST00497,At Risk
+CUST00498,Champions
+CUST00499,Champions
+CUST00500,Developing
+CUST00501,Developing
+CUST00502,Champions
+CUST00503,At Risk
+CUST00504,At Risk
+CUST00505,Champions
+CUST00506,Champions
+CUST00507,Developing
+CUST00508,Champions
+CUST00509,Developing
+CUST00510,Champions
+CUST00511,Champions
+CUST00512,Champions
+CUST00513,At Risk
+CUST00514,Champions
+CUST00515,At Risk
+CUST00516,Champions
+CUST00517,At Risk
+CUST00518,At Risk
+CUST00519,Developing
+CUST00520,Champions
+CUST00521,Developing
+CUST00522,Champions
+CUST00523,Developing
+CUST00524,Champions
+CUST00525,Developing
+CUST00526,At Risk
+CUST00527,At Risk
+CUST00528,Developing
+CUST00529,Developing
+CUST00530,Champions
+CUST00531,Developing
+CUST00532,Developing
+CUST00533,At Risk
+CUST00534,Champions
+CUST00535,Champions
+CUST00536,Developing
+CUST00537,Champions
+CUST00538,Developing
+CUST00539,Champions
+CUST00540,Champions
+CUST00541,Champions
+CUST00542,Developing
+CUST00543,Developing
+CUST00544,Developing
+CUST00545,Champions
+CUST00546,At Risk
+CUST00547,Developing
+CUST00548,Champions
+CUST00549,Developing
+CUST00550,Champions
+CUST00551,Champions
+CUST00552,At Risk
+CUST00553,Champions
+CUST00554,At Risk
+CUST00555,Champions
+CUST00556,Champions
+CUST00557,Developing
+CUST00558,Champions
+CUST00559,Developing
+CUST00560,Champions
+CUST00561,Champions
+CUST00562,At Risk
+CUST00563,Developing
+CUST00564,Developing
+CUST00565,Champions
+CUST00566,Developing
+CUST00567,Developing
+CUST00568,Champions
+CUST00569,At Risk
+CUST00570,Developing
+CUST00571,Developing
+CUST00572,Champions
+CUST00573,Champions
+CUST00574,Champions
+CUST00575,Champions
+CUST00576,Champions
+CUST00577,Champions
+CUST00578,Developing
+CUST00579,Champions
+CUST00580,Developing
+CUST00581,Champions
+CUST00582,Champions
+CUST00583,Developing
+CUST00584,Developing
+CUST00585,Developing
+CUST00586,Developing
+CUST00587,At Risk
+CUST00588,Champions
+CUST00589,Champions
+CUST00590,At Risk
+CUST00591,Champions
+CUST00592,Champions
+CUST00593,Developing
+CUST00594,Champions
+CUST00595,Champions
+CUST00596,Champions
+CUST00597,Champions
+CUST00598,Developing
+CUST00599,Champions
+CUST00600,Champions
+CUST00601,Champions
+CUST00602,At Risk
+CUST00603,Developing
+CUST00604,At Risk
+CUST00605,Developing
+CUST00606,Champions
+CUST00607,Champions
+CUST00608,Champions
+CUST00609,Champions
+CUST00610,Developing
+CUST00611,Champions
+CUST00612,Developing
+CUST00613,Champions
+CUST00614,Developing
+CUST00615,Champions
+CUST00616,Developing
+CUST00617,Champions
+CUST00618,Developing
+CUST00619,Champions
+CUST00620,Champions
+CUST00621,Champions
+CUST00622,Champions
+CUST00623,Champions
+CUST00624,Champions
+CUST00625,Champions
+CUST00626,Developing
+CUST00627,Developing
+CUST00628,Developing
+CUST00629,Developing
+CUST00630,Champions
+CUST00631,Developing
+CUST00632,Developing
+CUST00633,Champions
+CUST00634,Developing
+CUST00635,Champions
+CUST00636,Champions
+CUST00637,Developing
+CUST00638,Developing
+CUST00639,Developing
+CUST00640,At Risk
+CUST00641,Developing
+CUST00642,Developing
+CUST00643,Champions
+CUST00644,Champions
+CUST00645,At Risk
+CUST00646,Developing
+CUST00647,Champions
+CUST00648,Champions
+CUST00649,Developing
+CUST00650,Champions
+CUST00651,Champions
+CUST00652,Champions
+CUST00653,Champions
+CUST00654,At Risk
+CUST00655,Champions
+CUST00656,Developing
+CUST00657,Champions
+CUST00658,Champions
+CUST00659,Champions
+CUST00660,Champions
+CUST00661,Developing
+CUST00662,Champions
+CUST00663,Developing
+CUST00664,Developing
+CUST00665,At Risk
+CUST00666,Developing
+CUST00667,Developing
+CUST00668,Developing
+CUST00669,Champions
+CUST00670,At Risk
+CUST00671,Champions
+CUST00672,Developing
+CUST00673,Champions
+CUST00674,Developing
+CUST00675,Developing
+CUST00676,Champions
+CUST00677,Developing
+CUST00678,Developing
+CUST00679,Champions
+CUST00680,Champions
+CUST00681,Developing
+CUST00682,Developing
+CUST00683,Champions
+CUST00684,Champions
+CUST00685,Developing
+CUST00686,At Risk
+CUST00687,Champions
+CUST00688,At Risk
+CUST00689,Champions
+CUST00690,Developing
+CUST00691,Champions
+CUST00692,Champions
+CUST00693,Champions
+CUST00694,Developing
+CUST00695,At Risk
+CUST00696,Champions
+CUST00697,Champions
+CUST00698,Developing
+CUST00699,Champions
+CUST00700,Champions
+CUST00701,Developing
+CUST00702,Developing
+CUST00703,Champions
+CUST00704,Champions
+CUST00705,Champions
+CUST00706,Champions
+CUST00707,Champions
+CUST00708,Champions
+CUST00709,Champions
+CUST00710,At Risk
+CUST00711,Champions
+CUST00712,Developing
+CUST00713,Champions
+CUST00714,Developing
+CUST00715,Developing
+CUST00716,Developing
+CUST00717,Champions
+CUST00718,Developing
+CUST00719,Developing
+CUST00720,Developing
+CUST00721,At Risk
+CUST00722,Champions
+CUST00723,Champions
+CUST00724,Champions
+CUST00725,Developing
+CUST00726,Champions
+CUST00727,Developing
+CUST00728,Champions
+CUST00729,Champions
+CUST00730,Developing
+CUST00731,Developing
+CUST00732,Champions
+CUST00733,Developing
+CUST00734,Champions
+CUST00735,Developing
+CUST00736,Champions
+CUST00737,Developing
+CUST00738,Developing
+CUST00739,Champions
+CUST00740,Developing
+CUST00741,Developing
+CUST00742,Champions
+CUST00743,Developing
+CUST00744,At Risk
+CUST00745,Developing
+CUST00746,Champions
+CUST00747,Developing
+CUST00748,Developing
+CUST00749,Developing
+CUST00750,Developing
+CUST00751,Champions
+CUST00752,Champions
+CUST00753,At Risk
+CUST00754,Champions
+CUST00755,Developing
+CUST00756,At Risk
+CUST00757,Developing
+CUST00758,Champions
+CUST00759,At Risk
+CUST00760,Developing
+CUST00761,Developing
+CUST00762,Developing
+CUST00763,Developing
+CUST00764,Champions
+CUST00765,Champions
+CUST00766,Developing
+CUST00767,Champions
+CUST00768,Developing
+CUST00769,Champions
+CUST00770,At Risk
+CUST00771,At Risk
+CUST00772,At Risk
+CUST00773,Champions
+CUST00774,Champions
+CUST00775,At Risk
+CUST00776,Developing
+CUST00777,At Risk
+CUST00778,At Risk
+CUST00779,At Risk
+CUST00780,Champions
+CUST00781,Champions
+CUST00782,Developing
+CUST00783,Champions
+CUST00784,Champions
+CUST00785,Developing
+CUST00786,Champions
+CUST00787,Developing
+CUST00788,Champions
+CUST00789,Developing
+CUST00790,Champions
+CUST00791,Developing
+CUST00792,Developing
+CUST00793,At Risk
+CUST00794,Champions
+CUST00795,Developing
+CUST00796,Developing
+CUST00797,Champions
+CUST00798,Developing
+CUST00799,Developing
+CUST00800,Champions
+CUST00801,Champions
+CUST00802,At Risk
+CUST00803,Champions
+CUST00804,Champions
+CUST00805,At Risk
+CUST00806,Champions
+CUST00807,Champions
+CUST00808,Champions
+CUST00809,Developing
+CUST00810,Champions
+CUST00811,Champions
+CUST00812,Developing
+CUST00813,Champions
+CUST00814,Champions
+CUST00815,Champions
+CUST00816,At Risk
+CUST00817,Champions
+CUST00818,Developing
+CUST00819,Developing
+CUST00820,Champions
+CUST00821,Champions
+CUST00822,Champions
+CUST00823,Champions
+CUST00824,Developing
+CUST00825,Champions
+CUST00826,Champions
+CUST00827,Developing
+CUST00828,Champions
+CUST00829,Champions
+CUST00830,Champions
+CUST00831,At Risk
+CUST00832,Champions
+CUST00833,Developing
+CUST00834,Champions
+CUST00835,Champions
+CUST00836,Champions
+CUST00837,Developing
+CUST00838,Champions
+CUST00839,Champions
+CUST00840,Champions
+CUST00841,At Risk
+CUST00842,Champions
+CUST00843,Champions
+CUST00844,At Risk
+CUST00845,Developing
+CUST00846,Champions
+CUST00847,Developing
+CUST00848,Developing
+CUST00849,Developing
+CUST00850,At Risk
+CUST00851,Champions
+CUST00852,Champions
+CUST00853,Champions
+CUST00854,Developing
+CUST00855,Developing
+CUST00856,Champions
+CUST00857,Developing
+CUST00858,Developing
+CUST00859,Champions
+CUST00860,Developing
+CUST00861,At Risk
+CUST00862,Developing
+CUST00863,Champions
+CUST00864,Champions
+CUST00865,Champions
+CUST00866,Champions
+CUST00867,Developing
+CUST00868,Developing
+CUST00869,Developing
+CUST00870,Champions
+CUST00871,Champions
+CUST00872,At Risk
+CUST00873,Developing
+CUST00874,Champions
+CUST00875,Developing
+CUST00876,At Risk
+CUST00877,Developing
+CUST00878,Champions
+CUST00879,Developing
+CUST00880,Developing
+CUST00881,Champions
+CUST00882,Champions
+CUST00883,At Risk
+CUST00884,Champions
+CUST00885,Champions
+CUST00886,Champions
+CUST00887,Champions
+CUST00888,Developing
+CUST00889,Champions
+CUST00890,Developing
+CUST00891,Developing
+CUST00892,Developing
+CUST00893,Champions
+CUST00894,Champions
+CUST00895,At Risk
+CUST00896,Developing
+CUST00897,Champions
+CUST00898,Developing
+CUST00899,Developing
+CUST00900,Champions
+CUST00901,Developing
+CUST00902,Champions
+CUST00903,Champions
+CUST00904,Champions
+CUST00905,Developing
+CUST00906,At Risk
+CUST00907,Developing
+CUST00908,Developing
+CUST00909,Champions
+CUST00910,Developing
+CUST00911,Developing
+CUST00912,Champions
+CUST00913,At Risk
+CUST00914,Champions
+CUST00915,Developing
+CUST00916,Champions
+CUST00917,Champions
+CUST00918,At Risk
+CUST00919,At Risk
+CUST00920,Developing
+CUST00921,Developing
+CUST00922,Developing
+CUST00923,Champions
+CUST00924,Champions
+CUST00925,Developing
+CUST00926,Developing
+CUST00927,Champions
+CUST00928,Champions
+CUST00929,Champions
+CUST00930,At Risk
+CUST00931,Champions
+CUST00932,Champions
+CUST00933,Champions
+CUST00934,Developing
+CUST00935,Champions
+CUST00936,Champions
+CUST00937,Champions
+CUST00938,Champions
+CUST00939,At Risk
+CUST00940,Champions
+CUST00941,Developing
+CUST00942,Developing
+CUST00943,Developing
+CUST00944,Developing
+CUST00945,Developing
+CUST00946,Developing
+CUST00947,Champions
+CUST00948,Champions
+CUST00949,At Risk
+CUST00950,Champions
+CUST00951,Champions
+CUST00952,Champions
+CUST00953,Developing
+CUST00954,Champions
+CUST00955,At Risk
+CUST00956,Champions
+CUST00957,Champions
+CUST00958,Champions
+CUST00959,Champions
+CUST00960,Champions
+CUST00961,Developing
+CUST00962,Developing
+CUST00963,Developing
+CUST00964,At Risk
+CUST00965,Champions
+CUST00966,Champions
+CUST00967,Champions
+CUST00968,Developing
+CUST00969,Developing
+CUST00970,At Risk
+CUST00971,Developing
+CUST00972,Developing
+CUST00973,Developing
+CUST00974,Champions
+CUST00975,Champions
+CUST00976,Developing
+CUST00977,Developing
+CUST00978,Champions
+CUST00979,Champions
+CUST00980,Champions
+CUST00981,Developing
+CUST00982,Champions
+CUST00983,Developing
+CUST00984,Developing
+CUST00985,Developing
+CUST00986,Champions
+CUST00987,Developing
+CUST00988,Champions
+CUST00989,At Risk
+CUST00990,Champions
+CUST00991,Developing
+CUST00992,Champions
+CUST00993,Developing
+CUST00994,Champions
+CUST00995,Champions
+CUST00996,At Risk
+CUST00997,Developing
+CUST00998,Champions
+CUST00999,Champions
+CUST01000,Developing
+CUST01001,Champions
+CUST01002,At Risk
+CUST01003,At Risk
+CUST01004,Champions
+CUST01005,Champions
+CUST01006,At Risk
+CUST01007,At Risk
+CUST01008,Champions
+CUST01009,Champions
+CUST01010,At Risk
+CUST01011,Champions
+CUST01012,Champions
+CUST01013,Developing
+CUST01014,Champions
+CUST01015,Developing
+CUST01016,At Risk
+CUST01017,Champions
+CUST01018,Developing
+CUST01019,Developing
+CUST01020,At Risk
+CUST01021,Champions
+CUST01022,Developing
+CUST01023,Developing
+CUST01024,Developing
+CUST01025,Champions
+CUST01026,Developing
+CUST01027,Developing
+CUST01028,Champions
+CUST01029,At Risk
+CUST01030,Developing
+CUST01031,Developing
+CUST01032,Champions
+CUST01033,At Risk
+CUST01034,Developing
+CUST01035,Champions
+CUST01036,Champions
+CUST01037,Developing
+CUST01038,Developing
+CUST01039,Champions
+CUST01040,At Risk
+CUST01041,Developing
+CUST01042,Developing
+CUST01043,At Risk
+CUST01044,Developing
+CUST01045,Developing
+CUST01046,Developing
+CUST01047,Developing
+CUST01048,Champions
+CUST01049,At Risk
+CUST01050,Champions
+CUST01051,Developing
+CUST01052,At Risk
+CUST01053,Developing
+CUST01054,Champions
+CUST01055,Champions
+CUST01056,Developing
+CUST01057,Developing
+CUST01058,At Risk
+CUST01059,Developing
+CUST01060,Champions
+CUST01061,At Risk
+CUST01062,Champions
+CUST01063,Developing
+CUST01064,At Risk
+CUST01065,Champions
+CUST01066,Developing
+CUST01067,Developing
+CUST01068,At Risk
+CUST01069,Champions
+CUST01070,Champions
+CUST01071,Developing
+CUST01072,Developing
+CUST01073,Developing
+CUST01074,At Risk
+CUST01075,Champions
+CUST01076,Champions
+CUST01077,Developing
+CUST01078,At Risk
+CUST01079,Champions
+CUST01080,Champions
+CUST01081,Champions
+CUST01082,Developing
+CUST01083,Champions
+CUST01084,Champions
+CUST01085,At Risk
+CUST01086,At Risk
+CUST01087,Champions
+CUST01088,Champions
+CUST01089,Champions
+CUST01090,Champions
+CUST01091,At Risk
+CUST01092,Developing
+CUST01093,Champions
+CUST01094,Champions
+CUST01095,Champions
+CUST01096,Champions
+CUST01097,Developing
+CUST01098,Developing
+CUST01099,Developing
+CUST01100,At Risk
+CUST01101,Developing
+CUST01102,At Risk
+CUST01103,Champions
+CUST01104,Champions
+CUST01105,Developing
+CUST01106,Developing
+CUST01107,Champions
+CUST01108,Champions
+CUST01109,Developing
+CUST01110,Champions
+CUST01111,Champions
+CUST01112,At Risk
+CUST01113,Developing
+CUST01114,Champions
+CUST01115,Developing
+CUST01116,Champions
+CUST01117,Developing
+CUST01118,Champions
+CUST01119,Developing
+CUST01120,Champions
+CUST01121,Developing
+CUST01122,Developing
+CUST01123,Developing
+CUST01124,At Risk
+CUST01125,Champions
+CUST01126,Developing
+CUST01127,Champions
+CUST01128,Developing
+CUST01129,Champions
+CUST01130,Champions
+CUST01131,At Risk
+CUST01132,Champions
+CUST01133,Champions
+CUST01134,Champions
+CUST01135,At Risk
+CUST01136,Champions
+CUST01137,Developing
+CUST01138,Champions
+CUST01139,Developing
+CUST01140,Champions
+CUST01141,At Risk
+CUST01142,Developing
+CUST01143,Developing
+CUST01144,Champions
+CUST01145,Champions
+CUST01146,Champions
+CUST01147,Developing
+CUST01148,Developing
+CUST01149,At Risk
+CUST01150,Champions
+CUST01151,Champions
+CUST01152,Developing
+CUST01153,Developing
+CUST01154,Developing
+CUST01155,Champions
+CUST01156,Developing
+CUST01157,Developing
+CUST01158,Developing
+CUST01159,Developing
+CUST01160,At Risk
+CUST01161,Developing
+CUST01162,Champions
+CUST01163,Developing
+CUST01164,Developing
+CUST01165,Champions
+CUST01166,Champions
+CUST01167,Champions
+CUST01168,Champions
+CUST01169,Champions
+CUST01170,At Risk
+CUST01171,Champions
+CUST01172,Developing
+CUST01173,Champions
+CUST01174,Developing
+CUST01175,At Risk
+CUST01176,Champions
+CUST01177,Developing
+CUST01178,Champions
+CUST01179,Developing
+CUST01180,Champions
+CUST01181,Developing
+CUST01182,At Risk
+CUST01183,Developing
+CUST01184,Developing
+CUST01185,Champions
+CUST01186,Developing
+CUST01187,Developing
+CUST01188,Champions
+CUST01189,Developing
+CUST01190,Champions
+CUST01191,Champions
+CUST01192,Champions
+CUST01193,Champions
+CUST01194,At Risk
+CUST01195,Champions
+CUST01196,Developing
+CUST01197,Champions
+CUST01198,At Risk
+CUST01199,Champions
+CUST01200,Champions
+CUST01201,At Risk
+CUST01202,Champions
+CUST01203,Champions
+CUST01204,Developing
+CUST01205,Champions
+CUST01206,Champions
+CUST01207,Champions
+CUST01208,Developing
+CUST01209,Champions
+CUST01210,Developing
+CUST01211,Champions
+CUST01212,Champions
+CUST01213,Champions
+CUST01214,Developing
+CUST01215,Champions
+CUST01216,Champions
+CUST01217,Developing
+CUST01218,Developing
+CUST01219,Developing
+CUST01220,Developing
+CUST01221,Champions
+CUST01222,Champions
+CUST01223,Developing
+CUST01224,Champions
+CUST01225,Champions
+CUST01226,Developing
+CUST01227,At Risk
+CUST01228,Developing
+CUST01229,Champions
+CUST01230,Developing
+CUST01231,Champions
+CUST01232,Champions
+CUST01233,Champions
+CUST01234,Developing
+CUST01235,Champions
+CUST01236,Champions
+CUST01237,Developing
+CUST01238,Developing
+CUST01239,Champions
+CUST01240,At Risk
+CUST01241,Developing
+CUST01242,At Risk
+CUST01243,Developing
+CUST01244,Champions
+CUST01245,Developing
+CUST01246,Developing
+CUST01247,Champions
+CUST01248,At Risk
+CUST01249,Champions
+CUST01250,Developing
+CUST01251,Champions
+CUST01252,At Risk
+CUST01253,At Risk
+CUST01254,Developing
+CUST01255,Champions
+CUST01256,Champions
+CUST01257,Champions
+CUST01258,Champions
+CUST01259,Developing
+CUST01260,Developing
+CUST01261,Developing
+CUST01262,Developing
+CUST01263,Champions
+CUST01264,Developing
+CUST01265,Champions
+CUST01266,At Risk
+CUST01267,Champions
+CUST01268,Champions
+CUST01269,Champions
+CUST01270,At Risk
+CUST01271,At Risk
+CUST01272,Developing
+CUST01273,Champions
+CUST01274,Developing
+CUST01275,Champions
+CUST01276,Developing
+CUST01277,Champions
+CUST01278,Champions
+CUST01279,Champions
+CUST01280,Developing
+CUST01281,Champions
+CUST01282,Champions
+CUST01283,Champions
+CUST01284,Champions
+CUST01285,Developing
+CUST01286,Developing
+CUST01287,Champions
+CUST01288,Developing
+CUST01289,Champions
+CUST01290,Champions
+CUST01291,Champions
+CUST01292,Champions
+CUST01293,Champions
+CUST01294,Champions
+CUST01295,Developing
+CUST01296,Developing
+CUST01297,Champions
+CUST01298,Developing
+CUST01299,Champions
+CUST01300,Champions
+CUST01301,Champions
+CUST01302,Developing
+CUST01303,Champions
+CUST01304,Champions
+CUST01305,At Risk
+CUST01306,At Risk
+CUST01307,Champions
+CUST01308,At Risk
+CUST01309,Champions
+CUST01310,Developing
+CUST01311,Developing
+CUST01312,Champions
+CUST01313,Champions
+CUST01314,Champions
+CUST01315,At Risk
+CUST01316,Champions
+CUST01317,At Risk
+CUST01318,Champions
+CUST01319,Developing
+CUST01320,Developing
+CUST01321,Developing
+CUST01322,Champions
+CUST01323,Developing
+CUST01324,Developing
+CUST01325,At Risk
+CUST01326,Developing
+CUST01327,Developing
+CUST01328,Champions
+CUST01329,At Risk
+CUST01330,Champions
+CUST01331,At Risk
+CUST01332,Champions
+CUST01333,Developing
+CUST01334,Developing
+CUST01335,Champions
+CUST01336,Champions
+CUST01337,Champions
+CUST01338,Developing
+CUST01339,Champions
+CUST01340,Champions
+CUST01341,Developing
+CUST01342,Developing
+CUST01343,Developing
+CUST01344,Champions
+CUST01345,Champions
+CUST01346,Champions
+CUST01347,Developing
+CUST01348,Developing
+CUST01349,Champions
+CUST01350,Developing
+CUST01351,Champions
+CUST01352,Developing
+CUST01353,Champions
+CUST01354,At Risk
+CUST01355,Developing
+CUST01356,Champions
+CUST01357,At Risk
+CUST01358,Developing
+CUST01359,Champions
+CUST01360,Developing
+CUST01361,Champions
+CUST01362,Champions
+CUST01363,At Risk
+CUST01364,Developing
+CUST01365,Developing
+CUST01366,Champions
+CUST01367,Champions
+CUST01368,Champions
+CUST01369,Developing
+CUST01370,Developing
+CUST01371,Champions
+CUST01372,Champions
+CUST01373,Developing
+CUST01374,Champions
+CUST01375,Champions
+CUST01376,Developing
+CUST01377,At Risk
+CUST01378,Developing
+CUST01379,Champions
+CUST01380,Champions
+CUST01381,Champions
+CUST01382,Champions
+CUST01383,Developing
+CUST01384,At Risk
+CUST01385,Developing
+CUST01386,Champions
+CUST01387,Champions
+CUST01388,At Risk
+CUST01389,Champions
+CUST01390,Developing
+CUST01391,Champions
+CUST01392,Champions
+CUST01393,Developing
+CUST01394,Developing
+CUST01395,Developing
+CUST01396,At Risk
+CUST01397,Developing
+CUST01398,Developing
+CUST01399,Champions
+CUST01400,Developing
+CUST01401,Champions
+CUST01402,Champions
+CUST01403,Developing
+CUST01404,Champions
+CUST01405,Developing
+CUST01406,Champions
+CUST01407,Developing
+CUST01408,Champions
+CUST01409,Champions
+CUST01410,Champions
+CUST01411,Developing
+CUST01412,Champions
+CUST01413,Developing
+CUST01414,Developing
+CUST01415,Champions
+CUST01416,Developing
+CUST01417,Champions
+CUST01418,Developing
+CUST01419,Champions
+CUST01420,Champions
+CUST01421,Champions
+CUST01422,Developing
+CUST01423,Champions
+CUST01424,Developing
+CUST01425,At Risk
+CUST01426,At Risk
+CUST01427,Developing
+CUST01428,Champions
+CUST01429,Champions
+CUST01430,At Risk
+CUST01431,At Risk
+CUST01432,Champions
+CUST01433,Developing
+CUST01434,Developing
+CUST01435,At Risk
+CUST01436,Champions
+CUST01437,Champions
+CUST01438,Champions
+CUST01439,Developing
+CUST01440,Champions
+CUST01441,Champions
+CUST01442,Champions
+CUST01443,Champions
+CUST01444,Champions
+CUST01445,Developing
+CUST01446,Developing
+CUST01447,Champions
+CUST01448,Developing
+CUST01449,Champions
+CUST01450,At Risk
+CUST01451,Developing
+CUST01452,Champions
+CUST01453,Champions
+CUST01454,Champions
+CUST01455,Developing
+CUST01456,Champions
+CUST01457,Champions
+CUST01458,Champions
+CUST01459,Developing
+CUST01460,Champions
+CUST01461,Champions
+CUST01462,Champions
+CUST01463,Champions
+CUST01464,At Risk
+CUST01465,Developing
+CUST01466,Champions
+CUST01467,Champions
+CUST01468,Champions
+CUST01469,Champions
+CUST01470,Champions
+CUST01471,Champions
+CUST01472,Champions
+CUST01473,Champions
+CUST01474,Champions
+CUST01475,Developing
+CUST01476,Developing
+CUST01477,Developing
+CUST01478,Champions
+CUST01479,Champions
+CUST01480,At Risk
+CUST01481,Developing
+CUST01482,Developing
+CUST01483,Champions
+CUST01484,Developing
+CUST01485,Champions
+CUST01486,Developing
+CUST01487,Developing
+CUST01488,Champions
+CUST01489,At Risk
+CUST01490,At Risk
+CUST01491,Champions
+CUST01492,Developing
+CUST01493,Champions
+CUST01494,Champions
+CUST01495,Champions
+CUST01496,Champions
+CUST01497,Developing
+CUST01498,Developing
+CUST01499,Developing
+CUST01500,At Risk
+CUST01501,Champions
+CUST01502,Developing
+CUST01503,Developing
+CUST01504,At Risk
+CUST01505,Developing
+CUST01506,Champions
+CUST01507,At Risk
+CUST01508,At Risk
+CUST01509,Champions
+CUST01510,At Risk
+CUST01511,Developing
+CUST01512,Developing
+CUST01513,Developing
+CUST01514,Champions
+CUST01515,Champions
+CUST01516,Developing
+CUST01517,Champions
+CUST01518,Developing
+CUST01519,Champions
+CUST01520,Champions
+CUST01521,Developing
+CUST01522,Developing
+CUST01523,Champions
+CUST01524,Developing
+CUST01525,Champions
+CUST01526,Champions
+CUST01527,Champions
+CUST01528,Developing
+CUST01529,Champions
+CUST01530,Champions
+CUST01531,Developing
+CUST01532,Champions
+CUST01533,Champions
+CUST01534,Developing
+CUST01535,Developing
+CUST01536,Developing
+CUST01537,At Risk
+CUST01538,At Risk
+CUST01539,Developing
+CUST01540,Champions
+CUST01541,Developing
+CUST01542,At Risk
+CUST01543,Developing
+CUST01544,Champions
+CUST01545,Champions
+CUST01546,Developing
+CUST01547,Developing
+CUST01548,Champions
+CUST01549,Developing
+CUST01550,Champions
+CUST01551,At Risk
+CUST01552,Champions
+CUST01553,Developing
+CUST01554,Developing
+CUST01555,At Risk
+CUST01556,Developing
+CUST01557,Champions
+CUST01558,Champions
+CUST01559,Champions
+CUST01560,Developing
+CUST01561,Champions
+CUST01562,Champions
+CUST01563,Champions
+CUST01564,At Risk
+CUST01565,Champions
+CUST01566,Developing
+CUST01567,Champions
+CUST01568,At Risk
+CUST01569,Developing
+CUST01570,Champions
+CUST01571,Champions
+CUST01572,Champions
+CUST01573,Champions
+CUST01574,Champions
+CUST01575,Champions
+CUST01576,Champions
+CUST01577,At Risk
+CUST01578,Developing
+CUST01579,Champions
+CUST01580,Developing
+CUST01581,Champions
+CUST01582,Developing
+CUST01583,At Risk
+CUST01584,Champions
+CUST01585,Champions
+CUST01586,At Risk
+CUST01587,Developing
+CUST01588,Developing
+CUST01589,At Risk
+CUST01590,Developing
+CUST01591,Champions
+CUST01592,Developing
+CUST01593,Champions
+CUST01594,Developing
+CUST01595,Champions
+CUST01596,Developing
+CUST01597,At Risk
+CUST01598,Champions
+CUST01599,At Risk
+CUST01600,At Risk
+CUST01601,At Risk
+CUST01602,Champions
+CUST01603,Developing
+CUST01604,Champions
+CUST01605,Champions
+CUST01606,Champions
+CUST01607,Champions
+CUST01608,Champions
+CUST01609,Champions
+CUST01610,Champions
+CUST01611,Champions
+CUST01612,Champions
+CUST01613,Champions
+CUST01614,Developing
+CUST01615,Champions
+CUST01616,At Risk
+CUST01617,Champions
+CUST01618,Developing
+CUST01619,Champions
+CUST01620,Developing
+CUST01621,Developing
+CUST01622,Champions
+CUST01623,Champions
+CUST01624,Champions
+CUST01625,Developing
+CUST01626,Champions
+CUST01627,Developing
+CUST01628,Champions
+CUST01629,Champions
+CUST01630,Developing
+CUST01631,Developing
+CUST01632,Champions
+CUST01633,At Risk
+CUST01634,Developing
+CUST01635,Developing
+CUST01636,Developing
+CUST01637,Champions
+CUST01638,Champions
+CUST01639,Developing
+CUST01640,Champions
+CUST01641,Champions
+CUST01642,Developing
+CUST01643,Champions
+CUST01644,Champions
+CUST01645,Champions
+CUST01646,Champions
+CUST01647,At Risk
+CUST01648,Developing
+CUST01649,Developing
+CUST01650,At Risk
+CUST01651,At Risk
+CUST01652,Champions
+CUST01653,Champions
+CUST01654,At Risk
+CUST01655,Champions
+CUST01656,Champions
+CUST01657,Champions
+CUST01658,Champions
+CUST01659,Developing
+CUST01660,Developing
+CUST01661,Champions
+CUST01662,Developing
+CUST01663,Champions
+CUST01664,Champions
+CUST01665,Champions
+CUST01666,Champions
+CUST01667,Developing
+CUST01668,At Risk
+CUST01669,Developing
+CUST01670,Champions
+CUST01671,Champions
+CUST01672,Developing
+CUST01673,Champions
+CUST01674,Champions
+CUST01675,Champions
+CUST01676,At Risk
+CUST01677,Champions
+CUST01678,At Risk
+CUST01679,Developing
+CUST01680,Champions
+CUST01681,Champions
+CUST01682,Developing
+CUST01683,Champions
+CUST01684,Champions
+CUST01685,Champions
+CUST01686,Champions
+CUST01687,Champions
+CUST01688,Champions
+CUST01689,Champions
+CUST01690,At Risk
+CUST01691,Developing
+CUST01692,At Risk
+CUST01693,Champions
+CUST01694,Champions
+CUST01695,At Risk
+CUST01696,Champions
+CUST01697,Developing
+CUST01698,Champions
+CUST01699,Developing
+CUST01700,Developing
+CUST01701,Developing
+CUST01702,Champions
+CUST01703,Champions
+CUST01704,Champions
+CUST01705,Champions
+CUST01706,Champions
+CUST01707,Developing
+CUST01708,Developing
+CUST01709,Champions
+CUST01710,Champions
+CUST01711,Champions
+CUST01712,Champions
+CUST01713,At Risk
+CUST01714,At Risk
+CUST01715,Developing
+CUST01716,Developing
+CUST01717,Developing
+CUST01718,Champions
+CUST01719,Developing
+CUST01720,At Risk
+CUST01721,Developing
+CUST01722,Champions
+CUST01723,Developing
+CUST01724,Champions
+CUST01725,Developing
+CUST01726,Champions
+CUST01727,Developing
+CUST01728,Champions
+CUST01729,Champions
+CUST01730,At Risk
+CUST01731,Champions
+CUST01732,Developing
+CUST01733,Champions
+CUST01734,Champions
+CUST01735,Developing
+CUST01736,Champions
+CUST01737,At Risk
+CUST01738,Champions
+CUST01739,Developing
+CUST01740,At Risk
+CUST01741,Developing
+CUST01742,Developing
+CUST01743,Champions
+CUST01744,Developing
+CUST01745,Champions
+CUST01746,At Risk
+CUST01747,Champions
+CUST01748,Champions
+CUST01749,Developing
+CUST01750,Champions
+CUST01751,Champions
+CUST01752,Champions
+CUST01753,At Risk
+CUST01754,Champions
+CUST01755,Developing
+CUST01756,Champions
+CUST01757,Champions
+CUST01758,Champions
+CUST01759,Champions
+CUST01760,Champions
+CUST01761,Developing
+CUST01762,Developing
+CUST01763,Developing
+CUST01764,Developing
+CUST01765,Developing
+CUST01766,Developing
+CUST01767,Champions
+CUST01768,Developing
+CUST01769,Champions
+CUST01770,At Risk
+CUST01771,Developing
+CUST01772,Developing
+CUST01773,Champions
+CUST01774,Champions
+CUST01775,Developing
+CUST01776,Champions
+CUST01777,Champions
+CUST01778,Developing
+CUST01779,Champions
+CUST01780,Developing
+CUST01781,Champions
+CUST01782,Champions
+CUST01783,Developing
+CUST01784,Champions
+CUST01785,Champions
+CUST01786,Champions
+CUST01787,Developing
+CUST01788,Champions
+CUST01789,Champions
+CUST01790,Champions
+CUST01791,At Risk
+CUST01792,At Risk
+CUST01793,Developing
+CUST01794,Champions
+CUST01795,Developing
+CUST01796,Champions
+CUST01797,Champions
+CUST01798,Developing
+CUST01799,Champions
+CUST01800,At Risk
+CUST01801,Champions
+CUST01802,Developing
+CUST01803,Developing
+CUST01804,Champions
+CUST01805,Developing
+CUST01806,At Risk
+CUST01807,Champions
+CUST01808,At Risk
+CUST01809,Developing
+CUST01810,Developing
+CUST01811,Champions
+CUST01812,At Risk
+CUST01813,Champions
+CUST01814,Champions
+CUST01815,Developing
+CUST01816,Developing
+CUST01817,Champions
+CUST01818,Champions
+CUST01819,Developing
+CUST01820,Champions
+CUST01821,Champions
+CUST01822,At Risk
+CUST01823,Champions
+CUST01824,Champions
+CUST01825,Champions
+CUST01826,Champions
+CUST01827,Developing
+CUST01828,Developing
+CUST01829,At Risk
+CUST01830,Developing
+CUST01831,Developing
+CUST01832,At Risk
+CUST01833,Developing
+CUST01834,Developing
+CUST01835,Developing
+CUST01836,Champions
+CUST01837,Developing
+CUST01838,Developing
+CUST01839,Champions
+CUST01840,Champions
+CUST01841,Developing
+CUST01842,Developing
+CUST01843,Champions
+CUST01844,Champions
+CUST01845,At Risk
+CUST01846,Developing
+CUST01847,Developing
+CUST01848,Developing
+CUST01849,Champions
+CUST01850,Champions
+CUST01851,Developing
+CUST01852,Champions
+CUST01853,Developing
+CUST01854,Champions
+CUST01855,Champions
+CUST01856,Champions
+CUST01857,At Risk
+CUST01858,At Risk
+CUST01859,At Risk
+CUST01860,Developing
+CUST01861,Developing
+CUST01862,Champions
+CUST01863,Developing
+CUST01864,Champions
+CUST01865,Developing
+CUST01866,Champions
+CUST01867,At Risk
+CUST01868,Developing
+CUST01869,Champions
+CUST01870,Developing
+CUST01871,Developing
+CUST01872,Developing
+CUST01873,Developing
+CUST01874,Champions
+CUST01875,Champions
+CUST01876,At Risk
+CUST01877,Developing
+CUST01878,Champions
+CUST01879,Champions
+CUST01880,Champions
+CUST01881,Developing
+CUST01882,Champions
+CUST01883,Champions
+CUST01884,Champions
+CUST01885,Developing
+CUST01886,Developing
+CUST01887,Champions
+CUST01888,Developing
+CUST01889,Developing
+CUST01890,Developing
+CUST01891,Champions
+CUST01892,Developing
+CUST01893,At Risk
+CUST01894,At Risk
+CUST01895,Developing
+CUST01896,Developing
+CUST01897,Champions
+CUST01898,Developing
+CUST01899,Developing
+CUST01900,Developing
+CUST01901,At Risk
+CUST01902,Developing
+CUST01903,Developing
+CUST01904,Champions
+CUST01905,Developing
+CUST01906,At Risk
+CUST01907,Champions
+CUST01908,Developing
+CUST01909,Champions
+CUST01910,Champions
+CUST01911,Developing
+CUST01912,Champions
+CUST01913,Champions
+CUST01914,Champions
+CUST01915,Champions
+CUST01916,Developing
+CUST01917,Champions
+CUST01918,Champions
+CUST01919,Champions
+CUST01920,At Risk
+CUST01921,Developing
+CUST01922,At Risk
+CUST01923,Developing
+CUST01924,Champions
+CUST01925,Developing
+CUST01926,Developing
+CUST01927,Developing
+CUST01928,Developing
+CUST01929,Champions
+CUST01930,Champions
+CUST01931,Champions
+CUST01932,Champions
+CUST01933,Champions
+CUST01934,Developing
+CUST01935,Champions
+CUST01936,Champions
+CUST01937,Developing
+CUST01938,Champions
+CUST01939,At Risk
+CUST01940,Developing
+CUST01941,Developing
+CUST01942,Developing
+CUST01943,At Risk
+CUST01944,Champions
+CUST01945,Champions
+CUST01946,Developing
+CUST01947,Champions
+CUST01948,Champions
+CUST01949,Champions
+CUST01950,Champions
+CUST01951,Champions
+CUST01952,Developing
+CUST01953,Champions
+CUST01954,Champions
+CUST01955,Developing
+CUST01956,Developing
+CUST01957,Developing
+CUST01958,Developing
+CUST01959,At Risk
+CUST01960,At Risk
+CUST01961,Developing
+CUST01962,At Risk
+CUST01963,Champions
+CUST01964,Developing
+CUST01965,Champions
+CUST01966,Developing
+CUST01967,Champions
+CUST01968,Developing
+CUST01969,Developing
+CUST01970,At Risk
+CUST01971,Champions
+CUST01972,Champions
+CUST01973,Developing
+CUST01974,Developing
+CUST01975,Champions
+CUST01976,Developing
+CUST01977,At Risk
+CUST01978,At Risk
+CUST01979,Developing
+CUST01980,Developing
+CUST01981,Developing
+CUST01982,At Risk
+CUST01983,Developing
+CUST01984,Champions
+CUST01985,At Risk
+CUST01986,Champions
+CUST01987,Developing
+CUST01988,Developing
+CUST01989,Champions
+CUST01990,Champions
+CUST01991,Champions
+CUST01992,Champions
+CUST01993,Champions
+CUST01994,At Risk
+CUST01995,Champions
+CUST01996,Champions
+CUST01997,At Risk
+CUST01998,At Risk
+CUST01999,Developing
+CUST02000,Developing
