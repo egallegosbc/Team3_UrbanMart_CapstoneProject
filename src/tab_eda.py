@@ -19,6 +19,27 @@ def churn_rate_bar(table, column):
     return fig
 
 
+def numeric_summary(df):
+    """describe() of the numeric columns only (TransactionValue): count, mean, std, quartiles."""
+    return df.describe(include="number").T
+
+
+def categorical_summary(df):
+    """
+    count / unique / top / freq for the text and date columns.
+
+    Dates are converted to "YYYY-MM-DD" text first, so every cell in a column has the
+    same type. Mixing timestamps and numbers in one table made Streamlit show the
+    numbers as 1970-01-01 dates.
+    """
+    columns = df.select_dtypes(exclude="number").columns
+    as_text = df[columns].copy()
+    for column in as_text.select_dtypes(include="datetime").columns:
+        as_text[column] = as_text[column].dt.strftime("%Y-%m-%d")
+    summary = as_text.astype(str).describe().T
+    return summary.astype({"count": int, "unique": int, "freq": int})
+
+
 def render_eda_tab():
     """Raw data sample, summary statistics and interactive EDA charts."""
     transactions = helpers.load_transactions()
@@ -30,14 +51,18 @@ def render_eda_tab():
                f"{transactions['TransactionDate'].max().date()}.")
     st.dataframe(transactions.head(200), width="stretch", height=250)
 
+    st.subheader("Transaction summary statistics")
     col1, col2 = st.columns(2)
     with col1:
-        st.subheader("Transaction summary statistics")
-        st.dataframe(transactions.describe(include="all").T, width="stretch")
+        st.markdown("**Numeric columns**")
+        st.dataframe(numeric_summary(transactions), width="stretch")
     with col2:
-        st.subheader("Customer table summary statistics")
-        st.caption("One row per customer, features computed before the cutoff date.")
-        st.dataframe(table.describe().T, width="stretch")
+        st.markdown("**Categorical and date columns**")
+        st.dataframe(categorical_summary(transactions), width="stretch")
+
+    st.subheader("Customer table summary statistics")
+    st.caption("One row per customer, features computed before the cutoff date.")
+    st.dataframe(table.describe().T, width="stretch")
 
     st.subheader("Customer feature distribution by churn_risk_flag")
     feature = st.selectbox("Feature", HISTOGRAM_FEATURES, key="eda_feature")

@@ -64,6 +64,22 @@ def test_app_runs_with_four_tabs_and_kpis():
         assert kpi in labels
 
 
+def test_transaction_summary_tables_do_not_mix_types():
+    """Tab 1: numeric and categorical/date summaries are separate, with no 1970 dates."""
+    at = start_app()
+    tables = [frame.value for frame in at.dataframe]
+    numeric = next(t for t in tables if "TransactionValue" in t.index and "mean" in t.columns)
+    assert list(numeric.index) == ["TransactionValue"]
+    assert all(dtype.kind == "f" for dtype in numeric.dtypes)
+    assert numeric.loc["TransactionValue", "max"] > 1_000_000
+
+    categorical = next(t for t in tables if "TransactionDate" in t.index and "top" in t.columns)
+    assert "TransactionValue" not in categorical.index
+    assert categorical.loc["TransactionDate", "unique"] == 730
+    for table in (numeric, categorical):
+        assert "1970-01-01" not in table.astype(str).to_string()
+
+
 def test_low_and_high_risk_scenarios():
     """Changing sliders updates the prediction and the alert type."""
     at = start_app()
@@ -101,7 +117,8 @@ def test_policy_rules():
 
 
 if __name__ == "__main__":
-    tests = [test_app_runs_with_four_tabs_and_kpis, test_low_and_high_risk_scenarios,
+    tests = [test_app_runs_with_four_tabs_and_kpis,
+             test_transaction_summary_tables_do_not_mix_types, test_low_and_high_risk_scenarios,
              test_every_model_and_presets_run, test_policy_rules]
     for test in tests:
         test()
