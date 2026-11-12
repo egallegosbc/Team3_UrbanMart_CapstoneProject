@@ -1,1126 +1,576 @@
-from __future__ import annotations
+# ============================================================
+# URBANMART CUSTOMER INTELLIGENCE
+# RFM-BASED CUSTOMER SEGMENTATION WITH K-MEANS
+# Team 3 - Data Mining & Modern AI Systems
+# ============================================================
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
-from sklearn.cluster import KMeans
-from dotenv import load_dotenv
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-
-import os
-from decimal import Decimal, ROUND_HALF_UP
-from pathlib import Path
-
-import matplotlib
-
-matplotlib.use("Agg")
-
 
 # ============================================================
-# 1. PROJECT CONFIGURATION
+# STEP 1 - LOAD DATA
 # ============================================================
+file_path = "data/raw/UrbanMart_Transactions.csv"
+df = pd.read_csv(file_path)
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+print("\n" + "=" * 70)
+print("STEP 1 - DATA INGESTION")
+print("=" * 70)
+print(f"Dataset shape: {df.shape}")
+print(f"Total rows: {len(df):,}")
+print(f"Total columns: {len(df.columns)}")
+print("\nColumns:")
+for column in df.columns:
+    print(f" - {column}")
+print("\nMissing values:")
+print(df.isnull().sum())
 
-load_dotenv(PROJECT_ROOT / ".env")
+# ============================================================
+# STEP 2 - DATA PREPARATION
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 2 - DATA PREPARATION")
+print("=" * 70)
 
-RAW_PATH = PROJECT_ROOT / os.getenv(
-    "DATA_RAW_PATH",
-    "data/raw/UrbanMart_Transactions.csv",
+# Convert TransactionDate to datetime
+df["TransactionDate"] = pd.to_datetime(df["TransactionDate"])
+print(f"Date range: {df['TransactionDate'].min().date()} "
+      f"to {df['TransactionDate'].max().date()}")
+print(f"Unique customers: {df['CustomerID'].nunique():,}")
+
+# ============================================================
+# STEP 3 - RFM FEATURE ENGINEERING
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 3 - RFM FEATURE ENGINEERING")
+print("=" * 70)
+
+# Reference date = one day after the last transaction
+reference_date = df["TransactionDate"].max() + pd.Timedelta(days=1)
+print(f"Reference date: {reference_date.date()}")
+
+# Create RFM table
+rfm = (
+    df.groupby("CustomerID")
+    .agg(
+        Recency=(
+            "TransactionDate",
+            lambda x: (reference_date - x.max()).days
+        ),
+        Frequency=(
+            "TransactionID",
+            "nunique"
+        ),
+        Monetary=(
+            "TransactionValue",
+            "sum"
+        )
+    )
+    .reset_index()
 )
 
-PROCESSED_DIR = PROJECT_ROOT / os.getenv(
-    "DATA_PROCESSED_DIR",
-    "data/processed",
+print("\nRFM table created successfully.")
+print(f"Customers in RFM table: {len(rfm):,}")
+print("\nFirst 5 customers:")
+print(rfm.head())
+print("\nRFM descriptive statistics:")
+print(rfm[["Recency", "Frequency", "Monetary"]].describe())
+
+# ============================================================
+# STEP 4 - LOG TRANSFORMATION
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 4 - LOG TRANSFORMATION")
+print("=" * 70)
+
+# Frequency and Monetary are right-skewed,
+# so log1p is used to stabilize their distributions.
+rfm["Frequency_log"] = np.log1p(rfm["Frequency"])
+rfm["Monetary_log"] = np.log1p(rfm["Monetary"])
+print("log1p transformation applied to:")
+print(" - Frequency")
+print(" - Monetary")
+
+# ============================================================
+# STEP 5 - STANDARDIZATION
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 5 - FEATURE SCALING")
+print("=" * 70)
+
+features = [
+    "Recency",
+    "Frequency_log",
+    "Monetary_log"
+]
+X = rfm[features]
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+print("StandardScaler applied successfully.")
+print("\nFeatures used for K-Means:")
+for feature in features:
+    print(f" - {feature}")
+
+# ============================================================
+# STEP 6 - TEST K = 2 TO 10
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 6 - K-MEANS MODEL COMPARISON")
+print("=" * 70)
+
+k_values = range(2, 11)
+inertia_values = []
+silhouette_values = []
+
+for k in k_values:
+    kmeans = KMeans(
+        n_clusters=k,
+        random_state=42,
+        n_init=10
+    )
+    cluster_labels = kmeans.fit_predict(X_scaled)
+    inertia = kmeans.inertia_
+    silhouette = silhouette_score(
+        X_scaled,
+        cluster_labels
+    )
+    inertia_values.append(inertia)
+    silhouette_values.append(silhouette)
+    print(
+        f"k = {k} | "
+        f"Inertia = {inertia:.4f} | "
+        f"Silhouette = {silhouette:.4f}"
+    )
+
+# ============================================================
+# STEP 7 - IDENTIFY BEST K
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 7 - MODEL SELECTION")
+print("=" * 70)
+
+best_index = np.argmax(silhouette_values)
+best_k = list(k_values)[best_index]
+best_silhouette = silhouette_values[best_index]
+print(f"Best k based on Silhouette Score: {best_k}")
+print(f"Best Silhouette Score: {best_silhouette:.4f}")
+
+# For the UrbanMart project, k = 3 was selected.
+chosen_k = 3
+print(f"\nFinal selected number of clusters: k = {chosen_k}")
+
+# ============================================================
+# STEP 8 - DIAGNOSTIC PLOTS
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 8 - GENERATING DIAGNOSTIC CHARTS")
+print("=" * 70)
+
+os.makedirs(
+    "reports/figures",
+    exist_ok=True
 )
 
-REPORTS_DIR = PROJECT_ROOT / os.getenv(
-    "REPORTS_DIR",
-    "reports",
+fig, axes = plt.subplots(
+    1,
+    2,
+    figsize=(12, 5)
 )
 
-RANDOM_STATE = int(
-    os.getenv("RANDOM_STATE", "42")
+# ------------------------------
+# Inertia / Elbow Plot
+# ------------------------------
+axes[0].plot(
+    list(k_values),
+    inertia_values,
+    marker="o"
+)
+axes[0].axvline(
+    x=chosen_k,
+    linestyle="--"
+)
+axes[0].set_title(
+    "K-Means Elbow Method"
+)
+axes[0].set_xlabel(
+    "Number of Clusters (k)"
+)
+axes[0].set_ylabel(
+    "Inertia"
+)
+axes[0].grid(
+    alpha=0.3
 )
 
-K_MIN = int(
-    os.getenv("K_MIN", "2")
+# ------------------------------
+# Silhouette Plot
+# ------------------------------
+axes[1].plot(
+    list(k_values),
+    silhouette_values,
+    marker="o"
+)
+axes[1].axvline(
+    x=chosen_k,
+    linestyle="--"
+)
+axes[1].set_title(
+    "Silhouette Score by k"
+)
+axes[1].set_xlabel(
+    "Number of Clusters (k)"
+)
+axes[1].set_ylabel(
+    "Silhouette Score"
+)
+axes[1].grid(
+    alpha=0.3
 )
 
-K_MAX = int(
-    os.getenv("K_MAX", "10")
+plt.tight_layout()
+figure_path = (
+    "reports/figures/rfm_diagnostics.png"
+)
+plt.savefig(
+    figure_path,
+    dpi=300,
+    bbox_inches="tight"
+)
+plt.close()
+print(
+    f"Diagnostic figure saved to: "
+    f"{figure_path}"
 )
 
+# ============================================================
+# STEP 9 - FINAL K-MEANS MODEL
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 9 - FINAL K-MEANS MODEL")
+print("=" * 70)
 
-REQUIRED_COLUMNS = [
-    "TransactionID",
-    "CustomerID",
-    "TransactionDate",
-    "TransactionValue",
-    "ProductCategory",
-    "PaymentMethod",
-    "CustomerGender",
-    "CustomerAgeGroup",
-    "Region",
+final_model = KMeans(
+    n_clusters=chosen_k,
+    random_state=42,
+    n_init=10
+)
+rfm["Cluster"] = final_model.fit_predict(
+    X_scaled
+)
+final_silhouette = silhouette_score(
+    X_scaled,
+    rfm["Cluster"]
+)
+print(
+    f"Final Silhouette Score: "
+    f"{final_silhouette:.4f}"
+)
+print("\nCustomers per cluster:")
+print(
+    rfm["Cluster"]
+    .value_counts()
+    .sort_index()
+)
+
+# ============================================================
+# STEP 10 - RAW CLUSTER PROFILES
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 10 - CLUSTER PROFILES")
+print("=" * 70)
+
+cluster_profile = (
+    rfm.groupby("Cluster")
+    .agg(
+        Customers=(
+            "CustomerID",
+            "count"
+        ),
+        Avg_Recency=(
+            "Recency",
+            "mean"
+        ),
+        Avg_Frequency=(
+            "Frequency",
+            "mean"
+        ),
+        Avg_Monetary=(
+            "Monetary",
+            "mean"
+        ),
+        Total_Revenue=(
+            "Monetary",
+            "sum"
+        )
+    )
+)
+total_revenue = (
+    cluster_profile["Total_Revenue"].sum()
+)
+cluster_profile["Revenue_Share_Pct"] = (
+    cluster_profile["Total_Revenue"]
+    / total_revenue
+    * 100
+)
+print("\nRaw cluster profile:")
+print(
+    cluster_profile.round(2)
+)
+
+# ============================================================
+# STEP 11 - Z-SCORE CLUSTER INTERPRETATION
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 11 - CLUSTER INTERPRETATION")
+print("=" * 70)
+
+profile_for_zscore = cluster_profile[
+    [
+        "Avg_Recency",
+        "Avg_Frequency",
+        "Avg_Monetary"
+    ]
+]
+profile_mean = profile_for_zscore.mean()
+profile_std = profile_for_zscore.std(ddof=0)
+cluster_zscores = (
+    profile_for_zscore - profile_mean
+) / profile_std
+cluster_zscores.columns = [
+    "Recency_Z",
+    "Frequency_Z",
+    "Monetary_Z"
+]
+cluster_profile = cluster_profile.join(
+    cluster_zscores
+)
+
+# Higher Recency means the customer has not
+# purchased for a longer period of time.
+# Therefore, the cluster with the highest
+# average Recency becomes "At Risk".
+at_risk_cluster = (
+    cluster_profile["Avg_Recency"].idxmax()
+)
+
+# Remaining clusters
+remaining_clusters = [
+    cluster
+    for cluster in cluster_profile.index
+    if cluster != at_risk_cluster
 ]
 
+# Engagement score:
+# lower Recency is better,
+# higher Frequency is better,
+# higher Monetary is better.
+cluster_profile["Engagement_Score"] = (
+    -cluster_profile["Recency_Z"]
+    + cluster_profile["Frequency_Z"]
+    + cluster_profile["Monetary_Z"]
+)
+champion_cluster = (
+    cluster_profile
+    .loc[remaining_clusters, "Engagement_Score"]
+    .idxmax()
+)
+developing_cluster = [
+    cluster
+    for cluster in remaining_clusters
+    if cluster != champion_cluster
+][0]
 
-SEGMENT_ORDER = [
+segment_map = {
+    champion_cluster: "Champions",
+    developing_cluster: "Developing",
+    at_risk_cluster: "At Risk"
+}
+rfm["Segment"] = (
+    rfm["Cluster"]
+    .map(segment_map)
+)
+cluster_profile["Segment"] = (
+    cluster_profile.index
+    .map(segment_map)
+)
+
+# ============================================================
+# STEP 12 - FINAL SEGMENT SUMMARY
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 12 - FINAL CUSTOMER SEGMENTS")
+print("=" * 70)
+
+segment_summary = (
+    rfm.groupby("Segment")
+    .agg(
+        Customers=(
+            "CustomerID",
+            "count"
+        ),
+        Avg_Recency=(
+            "Recency",
+            "mean"
+        ),
+        Avg_Frequency=(
+            "Frequency",
+            "mean"
+        ),
+        Avg_Monetary=(
+            "Monetary",
+            "mean"
+        ),
+        Revenue=(
+            "Monetary",
+            "sum"
+        )
+    )
+)
+segment_summary[
+    "Customer_Share_Pct"
+] = (
+    segment_summary["Customers"]
+    / len(rfm)
+    * 100
+)
+segment_summary[
+    "Revenue_Share_Pct"
+] = (
+    segment_summary["Revenue"]
+    / segment_summary["Revenue"].sum()
+    * 100
+)
+segment_order = [
     "Champions",
     "Developing",
-    "At Risk",
+    "At Risk"
 ]
-
-
-SEGMENT_ACTIONS = {
-    "Champions": (
-        "VIP rewards, early access, referrals"
-    ),
-    "Developing": (
-        "Cross-sell / upsell bundles"
-    ),
-    "At Risk": (
-        "Win-back offers, urgency discount"
-    ),
-}
-
-
-SEGMENT_COLORS = {
-    "Developing": "#3b82f6",
-    "Champions": "#10b981",
-    "At Risk": "#f59e0b",
-}
-
+segment_summary = (
+    segment_summary
+    .reindex(segment_order)
+)
+print(
+    segment_summary.round(2)
+)
 
 # ============================================================
-# 2. VALIDATION
+# STEP 13 - BUSINESS INTERPRETATION
 # ============================================================
+print("\n" + "=" * 70)
+print("STEP 13 - BUSINESS INTERPRETATION")
+print("=" * 70)
 
-def validate_input(df: pd.DataFrame) -> None:
-    """
-    Validate that the input dataset contains all expected fields
-    and does not contain critical data problems.
-    """
+print(
+    "\nCHAMPIONS:"
+    "\nRecent customers with high purchasing "
+    "frequency and strong monetary value."
+    "\nRecommended action: loyalty, VIP benefits, "
+    "early access and referral programs."
+)
+print(
+    "\nDEVELOPING:"
+    "\nActive customers with lower frequency or "
+    "spending than Champions."
+    "\nRecommended action: cross-sell, bundles, "
+    "recommendations and next-order incentives."
+)
+print(
+    "\nAT RISK:"
+    "\nCustomers who previously purchased but have "
+    "gone significantly longer without buying."
+    "\nRecommended action: win-back campaigns, "
+    "email/SMS reminders and targeted offers."
+)
 
-    missing_columns = sorted(
-        set(REQUIRED_COLUMNS) - set(df.columns)
+# ============================================================
+# STEP 14 - WIN-BACK ALERT
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 14 - WIN-BACK ALERT")
+print("=" * 70)
+
+winback_threshold = 60
+rfm["Winback_Alert"] = np.where(
+    rfm["Recency"] > winback_threshold,
+    "Review",
+    "No Alert"
+)
+customers_flagged = (
+    rfm["Winback_Alert"]
+    .eq("Review")
+    .sum()
+)
+print(
+    f"Win-back threshold: "
+    f"Recency > {winback_threshold} days"
+)
+print(
+    f"Customers flagged for review: "
+    f"{customers_flagged}"
+)
+
+# ============================================================
+# STEP 15 - SAVE OUTPUT
+# ============================================================
+print("\n" + "=" * 70)
+print("STEP 15 - SAVE RESULTS")
+print("=" * 70)
+
+os.makedirs(
+    "reports",
+    exist_ok=True
+)
+output_path = (
+    "reports/urbanmart_customer_segments.csv"
+)
+rfm.to_csv(
+    output_path,
+    index=False
+)
+print(
+    f"Customer segmentation file saved to: "
+    f"{output_path}"
+)
+
+# ============================================================
+# FINAL SUMMARY
+# ============================================================
+print("\n" + "=" * 70)
+print("URBANMART RFM PIPELINE COMPLETED SUCCESSFULLY")
+print("=" * 70)
+print(
+    f"Transactions analyzed: "
+    f"{len(df):,}"
+)
+print(
+    f"Unique customers: "
+    f"{len(rfm):,}"
+)
+print(
+    f"Selected clusters: "
+    f"{chosen_k}"
+)
+print(
+    f"Final Silhouette Score: "
+    f"{final_silhouette:.4f}"
+)
+print("\nFinal segment sizes:")
+for segment in segment_order:
+    count = (
+        rfm["Segment"]
+        .eq(segment)
+        .sum()
     )
-
-    if missing_columns:
-        raise ValueError(
-            "The CSV is missing required columns: "
-            + ", ".join(missing_columns)
-        )
-
-    if df.empty:
-        raise ValueError(
-            "The CSV file is empty."
-        )
-
-    if df["CustomerID"].isna().any():
-        raise ValueError(
-            "CustomerID contains missing values."
-        )
-
-    if df["TransactionID"].duplicated().any():
-        duplicates = int(
-            df["TransactionID"].duplicated().sum()
-        )
-
-        raise ValueError(
-            f"TransactionID contains "
-            f"{duplicates} duplicate values."
-        )
-
-    if df["TransactionDate"].isna().any():
-        raise ValueError(
-            "TransactionDate contains invalid "
-            "or missing dates."
-        )
-
-    if df["TransactionValue"].isna().any():
-        raise ValueError(
-            "TransactionValue contains missing values."
-        )
-
-    if (df["TransactionValue"] < 0).any():
-        raise ValueError(
-            "TransactionValue contains negative values."
-        )
-
-
-# ============================================================
-# 3. LOAD DATA
-# ============================================================
-
-def load_data() -> pd.DataFrame:
-    """
-    Read the UrbanMart transaction dataset and print
-    ingestion evidence for the report.
-    """
-
-    print()
-    print("=" * 65)
-    print("STEP 1: DATA INGESTION")
-    print("=" * 65)
-
+    percentage = (
+        count / len(rfm) * 100
+    )
     print(
-        f"File loaded from: {RAW_PATH}"
-    )
-
-    if not RAW_PATH.exists():
-        raise FileNotFoundError(
-            f"CSV not found at:\n{RAW_PATH}\n\n"
-            "Check DATA_RAW_PATH inside .env"
-        )
-
-    df = pd.read_csv(RAW_PATH)
-
-    df["TransactionDate"] = pd.to_datetime(
-        df["TransactionDate"],
-        errors="coerce",
-    )
-
-    validate_input(df)
-
-    print(
-        f"Shape (rows, columns): {df.shape}"
-    )
-
-    print(
-        f"Total rows: "
-        f"{len(df):,}"
-    )
-
-    print(
-        f"Unique customers: "
-        f"{df['CustomerID'].nunique():,}"
-    )
-
-    print(
-        f"Unique transactions: "
-        f"{df['TransactionID'].nunique():,}"
-    )
-
-    print(
-        "Date range: "
-        f"{df['TransactionDate'].min().date()} "
-        "to "
-        f"{df['TransactionDate'].max().date()}"
-    )
-
-    total_missing = int(
-        df.isna().sum().sum()
-    )
-
-    print(
-        f"Missing values: "
-        f"{total_missing} total"
-    )
-
-    print(
-        "Columns:"
-    )
-
-    for column in df.columns:
-        print(
-            f"  - {column}"
-        )
-
-    return df
-
-
-# ============================================================
-# 4. FEATURE ENGINEERING: RFM
-# ============================================================
-
-def build_rfm(
-    df: pd.DataFrame,
-) -> pd.DataFrame:
-    """
-    Build Recency, Frequency and Monetary features.
-
-    Recency:
-        Number of days since customer's last transaction.
-
-    Frequency:
-        Number of transactions for each customer.
-
-    Monetary:
-        Total historical customer spending.
-    """
-
-    snapshot_date = (
-        df["TransactionDate"].max()
-        + pd.Timedelta(days=1)
-    )
-
-    rfm = (
-        df.groupby(
-            "CustomerID",
-            as_index=False,
-        )
-        .agg(
-            LastPurchase=(
-                "TransactionDate",
-                "max",
-            ),
-            Frequency=(
-                "TransactionID",
-                "count",
-            ),
-            Monetary=(
-                "TransactionValue",
-                "sum",
-            ),
-        )
-    )
-
-    rfm["Recency"] = (
-        snapshot_date
-        - rfm["LastPurchase"]
-    ).dt.days
-
-    rfm = rfm[
-        [
-            "CustomerID",
-            "Recency",
-            "Frequency",
-            "Monetary",
-        ]
-    ]
-
-    return rfm
-
-
-# ============================================================
-# 5. TRANSFORM AND SCALE
-# ============================================================
-
-def transform_and_scale(
-    rfm: pd.DataFrame,
-) -> tuple[np.ndarray, StandardScaler]:
-    """
-    Apply log1p to Frequency and Monetary and then
-    StandardScaler to all three RFM variables.
-    """
-
-    features = rfm[
-        [
-            "Recency",
-            "Frequency",
-            "Monetary",
-        ]
-    ].copy()
-
-    # Frequency and Monetary are right-skewed.
-    features["Frequency"] = np.log1p(
-        features["Frequency"]
-    )
-
-    features["Monetary"] = np.log1p(
-        features["Monetary"]
-    )
-
-    scaler = StandardScaler()
-
-    scaled_features = scaler.fit_transform(
-        features
-    )
-
-    return scaled_features, scaler
-
-
-# ============================================================
-# 6. SELECT OPTIMAL NUMBER OF CLUSTERS
-# ============================================================
-
-def select_k(
-    scaled_features: np.ndarray,
-) -> tuple[pd.DataFrame, int]:
-    """
-    Test k = 2 ... 10 using:
-      - Inertia (Elbow Method)
-      - Silhouette Score
-    """
-
-    print()
-    print("=" * 65)
-    print("STEP 2: SELECTING OPTIMAL K")
-    print("=" * 65)
-
-    results = []
-
-    for k in range(
-        K_MIN,
-        K_MAX + 1,
-    ):
-        model = KMeans(
-            n_clusters=k,
-            random_state=RANDOM_STATE,
-            n_init=10,
-        )
-
-        labels = model.fit_predict(
-            scaled_features
-        )
-
-        silhouette = silhouette_score(
-            scaled_features,
-            labels,
-        )
-
-        results.append(
-            {
-                "k": k,
-                "inertia": model.inertia_,
-                "silhouette_score": silhouette,
-            }
-        )
-
-        print(
-            f"k={k:>2} | "
-            f"inertia={model.inertia_:,.4f} | "
-            f"silhouette={silhouette:.4f}"
-        )
-
-    metrics = pd.DataFrame(
-        results
-    )
-
-    best_index = (
-        metrics["silhouette_score"]
-        .idxmax()
-    )
-
-    best_k = int(
-        metrics.loc[
-            best_index,
-            "k",
-        ]
-    )
-
-    print()
-    print(
-        f"Selected k = {best_k}"
-    )
-
-    print(
-        "(highest Silhouette Score)"
-    )
-
-    return metrics, best_k
-
-
-# ============================================================
-# 7. ELBOW AND SILHOUETTE CHARTS
-# ============================================================
-
-def plot_k_selection(
-    metrics: pd.DataFrame,
-    best_k: int,
-) -> None:
-
-    # Elbow chart
-    plt.figure(
-        figsize=(8, 5)
-    )
-
-    plt.plot(
-        metrics["k"],
-        metrics["inertia"],
-        marker="o",
-    )
-
-    plt.axvline(
-        best_k,
-        linestyle="--",
-        label=f"Chosen k={best_k}",
-    )
-
-    plt.title(
-        "Elbow Method - "
-        "Inertia vs. Number of Clusters (k)"
-    )
-
-    plt.xlabel(
-        "Number of clusters (k)"
-    )
-
-    plt.ylabel(
-        "Inertia "
-        "(within-cluster sum of squares)"
-    )
-
-    plt.legend()
-    plt.tight_layout()
-
-    plt.savefig(
-        REPORTS_DIR / "elbow_method.png",
-        dpi=200,
-    )
-
-    plt.close()
-
-    # Silhouette chart
-    plt.figure(
-        figsize=(8, 5)
-    )
-
-    plt.plot(
-        metrics["k"],
-        metrics["silhouette_score"],
-        marker="o",
-    )
-
-    plt.axvline(
-        best_k,
-        linestyle="--",
-        label=f"Chosen k={best_k}",
-    )
-
-    plt.title(
-        "Silhouette Score vs. "
-        "Number of Clusters (k)"
-    )
-
-    plt.xlabel(
-        "Number of clusters (k)"
-    )
-
-    plt.ylabel(
-        "Average Silhouette Score"
-    )
-
-    plt.legend()
-    plt.tight_layout()
-
-    plt.savefig(
-        REPORTS_DIR
-        / "silhouette_scores.png",
-        dpi=200,
-    )
-
-    plt.close()
-
-
-# ============================================================
-# 8. BUSINESS LABELING
-# ============================================================
-
-def label_clusters(
-    rfm: pd.DataFrame,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """
-    Translate anonymous K-Means clusters into useful
-    business labels.
-
-    First:
-        Highest average Recency = At Risk
-
-    Then:
-        Rank remaining clusters using standardized
-        engagement:
-
-        - Recency + Frequency + Monetary
-
-    where lower Recency is better.
-    """
-
-    profiles = (
-        rfm.groupby(
-            "Cluster",
-            as_index=False,
-        )
-        .agg(
-            Customers=(
-                "CustomerID",
-                "count",
-            ),
-            AvgRecency=(
-                "Recency",
-                "mean",
-            ),
-            AvgFrequency=(
-                "Frequency",
-                "mean",
-            ),
-            AvgMonetary=(
-                "Monetary",
-                "mean",
-            ),
-            TotalRevenue=(
-                "Monetary",
-                "sum",
-            ),
-        )
-    )
-
-    profile_features = profiles[
-        [
-            "AvgRecency",
-            "AvgFrequency",
-            "AvgMonetary",
-        ]
-    ].copy()
-
-    means = (
-        profile_features.mean()
-    )
-
-    stds = (
-        profile_features
-        .std(ddof=0)
-        .replace(0, 1)
-    )
-
-    zscores = (
-        profile_features - means
-    ) / stds
-
-    profiles["EngagementScore"] = (
-        -zscores["AvgRecency"]
-        + zscores["AvgFrequency"]
-        + zscores["AvgMonetary"]
-    )
-
-    # Highest Recency = longest time without purchase
-    at_risk_cluster = int(
-        profiles.loc[
-            profiles["AvgRecency"].idxmax(),
-            "Cluster",
-        ]
-    )
-
-    remaining = profiles[
-        profiles["Cluster"]
-        != at_risk_cluster
-    ]
-
-    champions_cluster = int(
-        remaining.loc[
-            remaining[
-                "EngagementScore"
-            ].idxmax(),
-            "Cluster",
-        ]
-    )
-
-    developing_cluster = int(
-        remaining.loc[
-            remaining["Cluster"]
-            != champions_cluster,
-            "Cluster",
-        ].iloc[0]
-    )
-
-    cluster_labels = {
-        champions_cluster:
-            "Champions",
-
-        developing_cluster:
-            "Developing",
-
-        at_risk_cluster:
-            "At Risk",
-    }
-
-    rfm["Segment"] = (
-        rfm["Cluster"]
-        .map(cluster_labels)
-    )
-
-    profiles["Segment"] = (
-        profiles["Cluster"]
-        .map(cluster_labels)
-    )
-
-    return rfm, profiles
-
-
-# ============================================================
-# 9. SEGMENT SUMMARY
-# ============================================================
-
-def build_segment_summary(
-    rfm: pd.DataFrame,
-) -> pd.DataFrame:
-
-    total_customers = len(
-        rfm
-    )
-
-    total_revenue = (
-        rfm["Monetary"].sum()
-    )
-
-    summary = (
-        rfm.groupby(
-            "Segment",
-            as_index=False,
-        )
-        .agg(
-            Customers=(
-                "CustomerID",
-                "count",
-            ),
-            AvgRecency=(
-                "Recency",
-                "mean",
-            ),
-            AvgFrequency=(
-                "Frequency",
-                "mean",
-            ),
-            AvgMonetary=(
-                "Monetary",
-                "mean",
-            ),
-            TotalRevenue=(
-                "Monetary",
-                "sum",
-            ),
-        )
-    )
-
-    summary[
-        "CustomerSharePct"
-    ] = (
-        summary["Customers"]
-        / total_customers
-        * 100
-    )
-
-    summary[
-        "RevenueSharePct"
-    ] = (
-        summary["TotalRevenue"]
-        / total_revenue
-        * 100
-    )
-
-    summary[
-        "SuggestedAction"
-    ] = (
-        summary["Segment"]
-        .map(SEGMENT_ACTIONS)
-    )
-
-    summary[
-        "MonetaryLevel"
-    ] = (
-        summary["Segment"]
-        .map(
-            {
-                "Champions": "High",
-                "Developing": "Med.",
-                "At Risk": "Med.",
-            }
-        )
-    )
-
-    summary["Segment"] = pd.Categorical(
-        summary["Segment"],
-        categories=SEGMENT_ORDER,
-        ordered=True,
-    )
-
-    summary = (
-        summary
-        .sort_values("Segment")
-        .reset_index(drop=True)
-    )
-
-    summary["Segment"] = (
-        summary["Segment"]
-        .astype("object")
-    )
-
-    return summary
-
-
-# ============================================================
-# 10. CUSTOMER SEGMENT SCATTER PLOT
-# ============================================================
-
-def plot_segments(
-    rfm: pd.DataFrame,
-) -> None:
-
-    plt.figure(
-        figsize=(9, 6)
-    )
-
-    for segment in SEGMENT_ORDER:
-
-        segment_data = rfm[
-            rfm["Segment"]
-            == segment
-        ]
-
-        bubble_size = np.clip(
-            segment_data["Frequency"] * 4,
-            20,
-            180,
-        )
-
-        plt.scatter(
-            segment_data["Recency"],
-            segment_data["Monetary"],
-            s=bubble_size,
-            alpha=0.65,
-            label=segment,
-            color=SEGMENT_COLORS[
-                segment
-            ],
-            edgecolors="none",
-        )
-
-    plt.title(
-        "Customer Segments - RFM (K-Means)\n"
-        "Bubble size = Frequency"
-    )
-
-    plt.xlabel(
-        "Recency "
-        "(days since last purchase)"
-    )
-
-    plt.ylabel(
-        "Monetary "
-        "(total spend)"
-    )
-
-    plt.legend()
-    plt.tight_layout()
-
-    plt.savefig(
-        REPORTS_DIR
-        / "rfm_segments_scatter.png",
-        dpi=200,
-    )
-
-    plt.close()
-
-
-# ============================================================
-# 11. SAVE OUTPUT FILES
-# ============================================================
-
-def save_outputs(
-    rfm: pd.DataFrame,
-    profiles: pd.DataFrame,
-    summary: pd.DataFrame,
-    metrics: pd.DataFrame,
-) -> None:
-
-    # Simple CRM-ready output:
-    # CustomerID -> Segment
-    (
-        rfm[
-            [
-                "CustomerID",
-                "Segment",
-            ]
-        ]
-        .sort_values(
-            "CustomerID"
-        )
-        .to_csv(
-            PROCESSED_DIR
-            / "customer_segments.csv",
-            index=False,
-        )
-    )
-
-    # Complete RFM details
-    (
-        rfm
-        .sort_values(
-            "CustomerID"
-        )
-        .to_csv(
-            PROCESSED_DIR
-            / "rfm_customer_details.csv",
-            index=False,
-        )
-    )
-
-    profiles.to_csv(
-        REPORTS_DIR
-        / "cluster_profiles.csv",
-        index=False,
-    )
-
-    summary.to_csv(
-        REPORTS_DIR
-        / "segment_summary.csv",
-        index=False,
-    )
-
-    metrics.to_csv(
-        REPORTS_DIR
-        / "k_selection_metrics.csv",
-        index=False,
-    )
-
-
-# ============================================================
-# 12. TERMINAL RESULTS
-# ============================================================
-
-def print_final_results(
-    final_silhouette: float,
-    summary: pd.DataFrame,
-) -> None:
-
-    print()
-    print("=" * 65)
-    print("STEP 4: FINAL K-MEANS MODEL")
-    print("=" * 65)
-
-    print(
-        f"Final Silhouette Score: "
-        f"{final_silhouette:.4f}"
-    )
-
-    print()
-    print("Segment results:")
-
-    total_customers = int(
-        summary["Customers"].sum()
-    )
-
-    for _, row in summary.iterrows():
-
-        customers = int(
-            row["Customers"]
-        )
-
-        percentage = (
-            Decimal(customers)
-            * Decimal("100")
-            / Decimal(total_customers)
-        ).quantize(
-            Decimal("0.1"),
-            rounding=ROUND_HALF_UP,
-        )
-
-        print(
-            f"- {row['Segment']}: "
-            f"{customers:,} customers "
-            f"({percentage}%) | "
-            f"Avg R="
-            f"{row['AvgRecency']:.1f}d | "
-            f"Avg F="
-            f"{row['AvgFrequency']:.1f} | "
-            f"Avg M="
-            f"{row['AvgMonetary']:,.0f} | "
-            f"Revenue share="
-            f"{row['RevenueSharePct']:.1f}%"
-        )
-
-    print()
-    print("Files created:")
-
-    print(
-        "- data/processed/"
-        "customer_segments.csv"
-    )
-
-    print(
-        "- data/processed/"
-        "rfm_customer_details.csv"
-    )
-
-    print(
-        "- reports/"
-        "k_selection_metrics.csv"
-    )
-
-    print(
-        "- reports/"
-        "cluster_profiles.csv"
-    )
-
-    print(
-        "- reports/"
-        "segment_summary.csv"
-    )
-
-    print(
-        "- reports/"
-        "elbow_method.png"
-    )
-
-    print(
-        "- reports/"
-        "silhouette_scores.png"
-    )
-
-    print(
-        "- reports/"
-        "rfm_segments_scatter.png"
-    )
-
-
-# ============================================================
-# 13. MAIN PIPELINE
-# ============================================================
-
-def main() -> None:
-
-    PROCESSED_DIR.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    REPORTS_DIR.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    # ---------------------------------------
-    # Data ingestion
-    # ---------------------------------------
-
-    df = load_data()
-
-    # ---------------------------------------
-    # RFM
-    # ---------------------------------------
-
-    print()
-    print("=" * 65)
-    print("STEP 2A: FEATURE ENGINEERING - RFM")
-    print("=" * 65)
-
-    rfm = build_rfm(
-        df
-    )
-
-    print(
-        f"RFM table created: "
-        f"{len(rfm):,} customers"
-    )
-
-    # ---------------------------------------
-    # Transform
-    # ---------------------------------------
-
-    print()
-    print("=" * 65)
-    print("STEP 2B: TRANSFORM & SCALE")
-    print("=" * 65)
-
-    scaled_features, _ = (
-        transform_and_scale(
-            rfm
-        )
-    )
-
-    print(
-        "Applied log1p to "
-        "Frequency and Monetary."
-    )
-
-    print(
-        "Applied StandardScaler to "
-        "Recency, log(Frequency), "
-        "log(Monetary)."
-    )
-
-    # ---------------------------------------
-    # Select k
-    # ---------------------------------------
-
-    metrics, best_k = (
-        select_k(
-            scaled_features
-        )
-    )
-
-    plot_k_selection(
-        metrics,
-        best_k,
-    )
-
-    # ---------------------------------------
-    # Final K-Means
-    # ---------------------------------------
-
-    print()
-    print("=" * 65)
-    print("STEP 3: FITTING FINAL K-MEANS")
-    print("=" * 65)
-
-    final_model = KMeans(
-        n_clusters=best_k,
-        random_state=RANDOM_STATE,
-        n_init=10,
-    )
-
-    rfm["Cluster"] = (
-        final_model.fit_predict(
-            scaled_features
-        )
-    )
-
-    final_silhouette = (
-        silhouette_score(
-            scaled_features,
-            rfm["Cluster"],
-        )
-    )
-
-    # ---------------------------------------
-    # Business labels
-    # ---------------------------------------
-
-    rfm, profiles = (
-        label_clusters(
-            rfm
-        )
-    )
-
-    summary = (
-        build_segment_summary(
-            rfm
-        )
-    )
-
-    # ---------------------------------------
-    # Visualizations
-    # ---------------------------------------
-
-    plot_segments(
-        rfm
-    )
-
-    # ---------------------------------------
-    # Save everything
-    # ---------------------------------------
-
-    save_outputs(
-        rfm,
-        profiles,
-        summary,
-        metrics,
-    )
-
-    # ---------------------------------------
-    # Final terminal output
-    # ---------------------------------------
-
-    print_final_results(
-        final_silhouette,
-        summary,
-    )
-
-
-# ============================================================
-# ENTRY POINT
-# ============================================================
-
-if __name__ == "__main__":
-    main()
+        f"{segment}: "
+        f"{count:,} customers "
+        f"({percentage:.1f}%)"
+    )
+print("\nPipeline finished.")
