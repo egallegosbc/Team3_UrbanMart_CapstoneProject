@@ -1,0 +1,102 @@
+{
+  "training_date": "2026-11-12T11:35:30",
+  "random_seed": 42,
+  "versions": {
+    "python": "3.14.7",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "joblib": "1.6.0"
+  },
+  "numeric_features": [
+    "Recency",
+    "Frequency_log",
+    "Monetary_log"
+  ],
+  "categorical_features": [
+    "Region",
+    "CustomerAgeGroup",
+    "CustomerGender",
+    "PreferredCategory"
+  ],
+  "feature_order": [
+    "Recency",
+    "Frequency_log",
+    "Monetary_log",
+    "Region",
+    "CustomerAgeGroup",
+    "CustomerGender",
+    "PreferredCategory"
+  ],
+  "transformed_feature_names": [
+    "num__Recency",
+    "num__Frequency_log",
+    "num__Monetary_log",
+    "cat__Region_Bandung",
+    "cat__Region_Denpasar",
+    "cat__Region_Jakarta",
+    "cat__Region_Medan",
+    "cat__Region_Surabaya",
+    "cat__Region_Yogyakarta",
+    "cat__CustomerAgeGroup_18-25",
+    "cat__CustomerAgeGroup_26-35",
+    "cat__CustomerAgeGroup_36-50",
+    "cat__CustomerAgeGroup_>50",
+    "cat__CustomerGender_Female",
+    "cat__CustomerGender_Male",
+    "cat__PreferredCategory_Beauty",
+    "cat__PreferredCategory_Electronics",
+    "cat__PreferredCategory_Fashion",
+    "cat__PreferredCategory_Home",
+    "cat__PreferredCategory_Sport"
+  ],
+  "kmeans_features": [
+    "Recency",
+    "Frequency_log",
+    "Monetary_log"
+  ],
+  "target": "churn_risk_flag",
+  "window": {
+    "cutoff_date": "2024-11-01",
+    "last_date": "2024-12-30",
+    "window_days": 60
+  },
+  "data_quality": {
+    "rows": 50000,
+    "missing_values_total": 0,
+    "duplicate_rows": 0,
+    "duplicate_transaction_ids": 0
+  },
+  "class_balance": {
+    "customers": 2000,
+    "churn_positive": 261,
+    "churn_rate": 0.1305
+  },
+  "split": {
+    "train": 1600,
+    "test": 400,
+    "stratified": true
+  },
+  "ann": {
+    "hidden_layers": [
+      32,
+      16
+    ],
+    "iterations": 317,
+    "final_loss": 0.5259
+  },
+  "kmeans": {
+    "k": 3,
+    "silhouette": 0.3827,
+    "segment_map": {
+      "1": "Champions",
+      "0": "Developing",
+      "2": "At Risk"
+    },
+    "segment_sizes": {
+      "Champions": 996,
+      "Developing": 729,
+      "At Risk": 275
+    }
+  }
+}
