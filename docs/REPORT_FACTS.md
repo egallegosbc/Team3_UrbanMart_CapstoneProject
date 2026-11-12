@@ -176,14 +176,15 @@ app run about 4 s; fresh clone of the pushed branch + new venv + `pip install -r
 
 - Branch: `feature/capstone-streamlit` (from origin/main f011b60). Pushed, no force push.
 - `rfm-kmeans-pipeline-parte-2` was left untouched (on the remote, 1 commit ahead of main, not merged).
-- PR: open manually at
-  https://github.com/egallegosbc/Team3_UrbanMart_CapstoneProject/compare/main...feature/capstone-streamlit?expand=1
-  (GitHub CLI is not installed on this machine). Status: pending review.
+- PR: https://github.com/egallegosbc/Team3_UrbanMart_CapstoneProject/pull/2
+  (opened manually from the web, GitHub CLI is not installed on this machine).
+  Status: open, pending teammate review. Merge into main only after review and team approval.
 
 Commits (oldest last):
 
 ```
-docs: add report facts, AI log draft, defense notes and updated README
+docs: add pull request URL to report facts
+docs: add report facts, AI log draft, defense notes, PR description and updated README
 test: add AppTest smoke test for tabs, What-If alerts and policy rules
 fix: improve KPI card layout and chart readability on laptop screens
 feat: add Streamlit app shell with dark theme, KPI cards and four tabs
