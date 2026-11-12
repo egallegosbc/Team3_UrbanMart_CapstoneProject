@@ -43,15 +43,16 @@ def render_kpis(transactions, metadata, benchmark):
     sizes = metadata["kmeans"]["segment_sizes"]
     at_risk_share = sizes["At Risk"] / sum(sizes.values())
 
-    cols = st.columns(6)
-    cols[0].metric("Customers", f"{transactions['CustomerID'].nunique():,}")
-    cols[1].metric("Transactions", f"{len(transactions):,}")
-    cols[2].metric("Total revenue", f"{transactions['TransactionValue'].sum() / 1e9:,.1f} B")
-    cols[3].metric("Churn rate (target)", f"{metadata['class_balance']['churn_rate']:.1%}",
+    # Two rows of three cards so the values stay readable on a laptop screen.
+    row1, row2 = st.columns(3), st.columns(3)
+    row1[0].metric("Customers", f"{transactions['CustomerID'].nunique():,}")
+    row1[1].metric("Transactions", f"{len(transactions):,}")
+    row1[2].metric("Total revenue", f"{transactions['TransactionValue'].sum() / 1e9:,.1f} B")
+    row2[0].metric("Churn rate (target)", f"{metadata['class_balance']['churn_rate']:.1%}",
                    help=f"No purchase in the {metadata['window']['window_days']} days after "
                         f"{metadata['window']['cutoff_date']}.")
-    cols[4].metric("At Risk share (K-Means)", f"{at_risk_share:.1%}")
-    cols[5].metric("Best model (ROC-AUC)", f"{best['ROC-AUC']:.3f}", help=best["Model"])
+    row2[1].metric("At Risk share (K-Means)", f"{at_risk_share:.1%}")
+    row2[2].metric("Best model (ROC-AUC)", f"{best['ROC-AUC']:.3f}", help=best["Model"])
     st.caption(f"Best model by test ROC-AUC: **{best['Model']}**. Revenue in local currency.")
 
 

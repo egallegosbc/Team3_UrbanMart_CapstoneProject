@@ -111,7 +111,7 @@ def render_whatif_tab():
               delta=f"{probability - state['wi_threshold']:+.1%} vs threshold",
               delta_color="inverse")
     m2.metric("K-Means segment", segment)
-    m3.metric("Model", state["wi_model"])
+    m3.metric("Threshold", f"{state['wi_threshold']:.2f}", help=f"Model: {state['wi_model']}")
     st.progress(min(max(probability, 0.0), 1.0), text=f"P(churn) = {probability:.3f}")
     show_alert(level, message)
     st.caption(f"Rules: P >= threshold -> re-engagement voucher (stronger if spend >= "

@@ -82,7 +82,8 @@ def render_benchmark_tab():
     st.subheader("Confusion matrices (test set, threshold 0.5)")
     columns = st.columns(len(matrices))
     for column, (_, row) in zip(columns, matrices.iterrows()):
-        column.plotly_chart(confusion_figure(row), width="stretch")
+        column.plotly_chart(confusion_figure(row), width="stretch",
+                            config={"displayModeBar": False})
 
     # 3) ROC curves
     st.plotly_chart(roc_figure(roc_points, benchmark), width="stretch")
