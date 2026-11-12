@@ -20,8 +20,8 @@ Lenguaje simple, para repasar antes de la presentación. Los números exactos es
   confusión, curvas ROC y curva de pérdida de la ANN, con interpretación.
 - **src/tab_whatif.py**: pestaña 4. Sliders y selectores, carga el modelo elegido, calcula la
   probabilidad en vivo, predice el segmento K-Means y muestra la alerta de voucher.
-- **tests/smoke_test.py**: prueba automática con `AppTest`: la app arranca, cambia sliders y
-  verifica la alerta de bajo y alto riesgo.
+- **tests/smoke_test.py**: prueba automática con `AppTest` (5 tests): la app arranca, cambia
+  sliders, verifica la alerta de bajo y alto riesgo y que la tabla de resumen no muestre fechas 1970.
 - **.streamlit/config.toml**: tema oscuro con color de acento verde.
 - **models/metadata.json**: versiones de librerías, columnas, corte, balance de clases, resultados.
 

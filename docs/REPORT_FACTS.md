@@ -148,10 +148,11 @@ python -m streamlit run app.py        # start the dashboard (http://localhost:85
 python -m pytest tests/smoke_test.py -v
 ```
 
-Verification done: smoke test 4/4 passed; headless server health check `ok`; launched from
+Verification done: smoke test **5/5 passed** on main (the 5th test was added with the summary
+table fix, problem 9); headless server health check `ok`; launched from
 `C:\Users\romed` (different folder) without path errors; joblib loading about 3.6 s, first full
 app run about 4 s; fresh clone of the pushed branch + new venv + `pip install -r requirements.txt`
-+ `pip check` (no broken requirements) + smoke test: **4 passed**.
++ `pip check` (no broken requirements) + smoke test: **4 passed** (run before the 5th test existed).
 
 ## 12. Problems found and how they were fixed
 
@@ -171,18 +172,29 @@ app run about 4 s; fresh clone of the pushed branch + new venv + `pip install -r
 7. **requirements.txt was UTF-16** -> rewritten as UTF-8 with direct dependencies only.
 8. **Widget key conflicts**: preset buttons use `on_click` callbacks that update `st.session_state`
    before widgets are created; widgets do not pass `value=` when their key already has a value.
+9. **Summary table showed 1970-01-01 dates** (found by the team during review, after PR #2 was
+   merged): in the Data Explorer tab, `describe(include="all")` put timestamps and numbers in the
+   same columns, so Streamlit rendered the TransactionValue mean, min, quartiles and max as
+   1970-01-01 dates. Fixed by showing two tables: a numeric-only `describe` (TransactionValue)
+   and a count / unique / top / freq table for text and date columns, with dates converted to
+   `YYYY-MM-DD` text. A new AppTest check fails on the old code and passes on the fix. Merged in PR #3.
 
 ## 13. Git
 
 - Branch: `feature/capstone-streamlit` (from origin/main f011b60). Pushed, no force push.
 - `rfm-kmeans-pipeline-parte-2` was left untouched (on the remote, 1 commit ahead of main, not merged).
-- PR: https://github.com/egallegosbc/Team3_UrbanMart_CapstoneProject/pull/2
-  (opened manually from the web, GitHub CLI is not installed on this machine).
-  Status: open, pending teammate review. Merge into main only after review and team approval.
+- Pull requests (opened manually from the web, GitHub CLI is not installed on this machine):
+  - PR #2 https://github.com/egallegosbc/Team3_UrbanMart_CapstoneProject/pull/2 - dashboard,
+    pipeline, tests and docs. Approved by a teammate and **merged into main** (merge commit a595431).
+  - PR #3 https://github.com/egallegosbc/Team3_UrbanMart_CapstoneProject/pull/3 - summary table
+    fix (problem 9). **Merged into main** (merge commit 2a1b00b).
+  - A third PR from the same branch adds this documentation update.
 
 Commits (oldest last):
 
 ```
+docs: record summary table fix and PR #2 / PR #3 in report and AI log
+fix: split transaction summary into numeric and categorical/date tables
 docs: add pull request URL to report facts
 docs: add report facts, AI log draft, defense notes, PR description and updated README
 test: add AppTest smoke test for tabs, What-If alerts and policy rules
