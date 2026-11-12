@@ -51,6 +51,13 @@
   `use_container_width` is deprecated in Streamlit 1.67 and was replaced by `width="stretch"`.
 - **requirements.txt encoding**: the original file was UTF-16; rewritten as UTF-8.
 - **No GitHub CLI** on the machine: the pull request must be opened from the web compare page.
+- **Mixed-type summary table (missed by the AI, caught by the human)**: the Data Explorer tab used
+  `describe(include="all")`, which put timestamps and numbers in the same columns, so TransactionValue
+  statistics were shown as 1970-01-01 dates. The AI's smoke test and its visual check of the app did
+  not catch it; the student found it after PR #2 was merged. Fixed in PR #3 with a numeric-only
+  `describe` and a separate count / unique / top / freq table for text and date columns, plus an
+  AppTest check that fails on the old code. Lesson: passing tests that only check "no exceptions"
+  do not prove the displayed values are correct; the human must read the tables.
 
 ## 5. Verbatim prompt given to the AI
 
